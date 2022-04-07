@@ -18,7 +18,7 @@ componentDidMount() {
 const { lng, lat, zoom } = this.state;
 const map = new mapboxgl.Map({
 container: this.mapContainer.current,
-style: 'mapbox://styles/miffll/cl1ful06h003y14nwehytpg6w',
+style: 'mapbox://styles/miffll/cl1ful06h003y14nwehytpg6w/draft',
 center: [-114.07, 51.05],
 zoom: zoom
 });
