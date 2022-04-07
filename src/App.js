@@ -4,7 +4,7 @@ import Map from "./components/map/Map";
 
 function App() {
    return (
-    <span>
+    <span className="flex">
       <div>
         <Navbar />
       </div>

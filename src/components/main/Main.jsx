@@ -5,8 +5,7 @@ const Main = () => {
   return (
     <div className='main'>
       <div className='content'>
-    <h2 className='title'>The best Road Biking Routes in Calgary
-    </h2>
+   
        </div>
   </div>
   )

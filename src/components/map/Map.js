@@ -5,6 +5,9 @@ import "./Map.css"
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2lzaTAwMCIsImEiOiJjbDFmN2QwaGswMjFtM3BvOXdrOWE0YXg3In0.qofv6jpqKojK7PMs3vcO5Q';
  
 export default class App extends React.PureComponent {
+
+   
+ 
 constructor(props) {
 super(props);
 this.state = {
@@ -35,7 +38,9 @@ render() {
 const { lng, lat, zoom } = this.state;
 return (
 <div>
-<div className="sidebar">
+<h2 className='title'>The best Road Biking Routes in Calgary
+    </h2>
+    <div className="sidebar">
 Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
 </div>
 <div ref={this.mapContainer} className="map-container" id ="map"></div>

@@ -12,7 +12,7 @@ export default function Navbar() {
     <div className="navbar">
       <div className="container">
         <h1>
-          City Cycle Network <img src={Img1} alt="" />
+          City Cycle Network <img className="bike" src={Img1} alt="" />
         </h1>
 
         <ul className={click ? "nav-menu active" : "nav-menu"}>

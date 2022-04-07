@@ -1,9 +1,18 @@
+h2 {
+  margin-top: 43rem;
+  text-align: center;
+  font-family: inherit;
+  font-size: 36px;
+  font-style: inherit;
+}
+
 .map-container {
   height: 500px;
   width: auto;
+  top: 0;
   margin-left: 5%;
   margin-right: 5%;
-
+  position: relative;
 }
 
 .sidebar {

@@ -2,8 +2,7 @@
   color: rgb(62, 62, 62);
   height: 100%;
   width: 100%;
-  position:flex;
-  /* min-height: 300px; */
+  position: flex;
   top: 14%;
   left: 0;
 }
@@ -13,19 +12,12 @@
   background: url("../../images/calgary.jpg") no-repeat center center/cover;
   height: 100%;
   width: 100%;
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 
-h2 {
-  margin-top: 37rem;
-  text-align: center;
-  font-family: inherit;
-  font-size: 36px;
-  font-style: inherit;
-}
 
 /* .main .content {
     height: 100%;
