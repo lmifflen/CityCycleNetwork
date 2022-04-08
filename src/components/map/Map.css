@@ -1,13 +1,19 @@
 h2 {
-  margin-top: 43rem;
+  /* margin-top: 43rem; */
   text-align: center;
   font-family: inherit;
   font-size: 36px;
   font-style: inherit;
 }
 
+.map {
+  width: 100%;
+  margin: 4rem 0;
+  text-align: center;
+}
+
 .map-container {
-  height: 500px;
+  height: 100%;
   width: auto;
   top: 0;
   margin-left: 5%;
@@ -16,7 +22,7 @@ h2 {
 }
 
 .sidebar {
-  margin-top: 45rem;
+  /* margin-top: 45rem; */
   margin-left: 5%;
   background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
