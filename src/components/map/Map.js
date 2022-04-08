@@ -2,7 +2,7 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import "./Map.css"
  
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2lzaTAwMCIsImEiOiJjbDFmN2QwaGswMjFtM3BvOXdrOWE0YXg3In0.qofv6jpqKojK7PMs3vcO5Q';
+mapboxgl.accessToken = 'pk.eyJ1IjoibWlmZmxsIiwiYSI6ImNsMWNtNTA2MDA3ZGgzY3BjN2d0dDgzczUifQ.hCA00GpYuE3C8miBX7tfPg';
  
 export default class App extends React.PureComponent { 
  
@@ -19,7 +19,7 @@ componentDidMount() {
 const { lng, lat, zoom } = this.state;
 const map = new mapboxgl.Map({
 container: this.mapContainer.current,
-style: 'mapbox://styles/sisi000/cl1f9x670003h15s644ud3mkf',
+style: 'mapbox://styles/miffll/cl1ful06h003y14nwehytpg6w/draft',
 center: [-114.07, 51.05],
 zoom: zoom
 });
