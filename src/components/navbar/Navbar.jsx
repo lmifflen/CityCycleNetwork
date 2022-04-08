@@ -23,7 +23,7 @@ export default function Navbar() {
           </li>
           <li>
             <p>
-              <a href="/map">Map</a>
+              <a href="#mapbox">Map</a>
             </p>
           </li>
           <li>

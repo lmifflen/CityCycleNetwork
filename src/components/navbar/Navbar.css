@@ -6,6 +6,8 @@
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid #eee;
   position: fixed;
+
+ 
 }
 
 .navbar .container {
@@ -17,23 +19,24 @@
   padding: 1rem;
 }
 
-.navbar span {
-  color: #5651e5;
-}
-
 .navbar .nav-menu {
   display: flex;
   height: 80%;
   align-items: center;
+  vertical-align:middle;
+
 }
 
-.bike {
-  vertical-align: middle;
+bike {
+
+  vertical-align:middle;
 }
 
 h1 {
   color: rgb(69, 67, 67);
-}
+
+  
+ }
 
 .navbar li {
   padding: 1rem;
