@@ -8,7 +8,7 @@ import {
   createComment as createCommentApi,
   updateComment as updateCommentApi,
   deleteComment as deleteCommentApi,
-} from "./api";
+} from "./Api";
 
 const Comments = ({ commentsUrl, currentUserId }) => {
   const [backendComments, setBackendComments] = useState([]);
