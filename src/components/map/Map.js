@@ -4,7 +4,8 @@ import "./Map.css"
  
 mapboxgl.accessToken = 'pk.eyJ1IjoibWlmZmxsIiwiYSI6ImNsMWNtNTA2MDA3ZGgzY3BjN2d0dDgzczUifQ.hCA00GpYuE3C8miBX7tfPg';
  
-export default class App extends React.PureComponent {
+export default class App extends React.PureComponent { 
+ 
 constructor(props) {
 super(props);
 this.state = {
@@ -34,11 +35,13 @@ zoom: map.getZoom().toFixed(2)
 render() {
 const { lng, lat, zoom } = this.state;
 return (
-<div>
-<div className="sidebar">
+<div className='map'>
+<h2 className='title'>The best Road Biking Routes in Calgary
+    </h2>
+    <div className="sidebar">
 Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
 </div>
-<div ref={this.mapContainer} className="map-container" id ="map"></div>
+<div ref={this.mapContainer} className="map-container" id ="mapbox"></div>
 </div>
 );
 }

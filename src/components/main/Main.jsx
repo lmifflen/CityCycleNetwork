@@ -1,12 +1,12 @@
 import React from 'react'
 import "./Main.css"
+import Img2 from "../../images/calgary.jpg";
 
 const Main = () => {
   return (
     <div className='main'>
       <div className='content'>
-    <h2 className='title'>The best Road Biking Routes in Calgary
-    </h2>
+      <img className="calg" src={Img2} alt="" />
        </div>
   </div>
   )
