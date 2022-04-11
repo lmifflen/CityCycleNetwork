@@ -5,7 +5,8 @@ import {MapProvider} from 'react-map-gl';
 import "./App.css"
 import Comments from "./components/comments/Comments";
 import Controls from './components/map/controls';
-
+import {render} from 'react-dom';
+console.log(process.env.REACT_APP_MAPBOX_TOKEN);
 function App() {
   return (
     <div className="flex">
@@ -22,3 +23,4 @@ function App() {
 }
 
 export default App;
+render(<App />, document.body.appendChild(document.createElement('div')));
