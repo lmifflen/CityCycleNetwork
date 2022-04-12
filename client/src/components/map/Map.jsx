@@ -10,6 +10,7 @@ const MapView = () => {
   const [zoom, setZoom] = useState(12);
 
   const mapContainer = useRef(null);
+  const [feature, setFeature] = useState(null);
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -24,7 +25,42 @@ const MapView = () => {
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
     });
-  }, []);
+
+    map.on('load', () => {
+        map.addSource('park-pathways', {
+            type: 'vector',
+            url: 'mapbox://miffll.park-pathways'
+        });
+        map.addLayer({
+            'id': 'GreenwayNorth',
+            'type': 'line',
+            'source': 'park-pathways',
+            'source-layer': 'GreenwayNorth',
+            'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': 'rgb(0, 255, 0)',
+                'line-width': 10
+            }
+        });
+        
+     map.on('click', (e) => {
+
+        const bbox = [
+            [e.point.x - 6, e.point.y - 6],
+            [e.point.x + 6, e.point.y + 6]
+        ];
+
+        setFeature(map.queryRenderedFeatures(bbox, {layers: [map.getSource('composite').vectorLayerIds]}));
+        
+        
+    });
+    console.log(map.getSource('composite').vectorLayerIds)
+    console.log(feature);
+    });
+  }, [feature]);
 
   return (
     <div className="map">
