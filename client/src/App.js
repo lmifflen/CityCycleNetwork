@@ -19,4 +19,3 @@ function App() {
 }
 
 export default App;
-render(<App />, document.body.appendChild(document.createElement('div')));
