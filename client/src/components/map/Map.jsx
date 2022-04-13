@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl";
+import Info from "../../info/Info";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -37,7 +38,7 @@ const MapView = () => {
       ];
       let x = map.queryRenderedFeatures(bbox);
       setFeature(x);
-      console.log(x);
+      
     });
 
     // map.on('load', () => {
@@ -90,6 +91,7 @@ const MapView = () => {
           className="map-container"
           id="mapbox"
         ></div>
+        {feature && (<Info feature={feature}></Info>)}
     </div>
   );
 };
