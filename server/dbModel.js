@@ -83,4 +83,4 @@ const retrieveComments = async () => {
 
 
 
-module.exports = { signUp, signIn, saveComment, retrieveComments, signOut };
+module.exports = { signUp, signIn, saveComment, retrieveComments, signOut, User, };
