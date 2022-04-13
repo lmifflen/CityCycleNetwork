@@ -1,15 +1,13 @@
-import React from 'react'
-import "./Main.css"
+import React from "react";
+import "./Main.css";
 import Img2 from "../../images/calgary.jpg";
 
 const Main = () => {
   return (
-    <div className='main'>
-      <div className='content'>
+    <div className="main">
       <img className="calg" src={Img2} alt="" />
-       </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Main
+export default Main;

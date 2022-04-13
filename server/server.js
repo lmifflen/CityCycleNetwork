@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
-const { signUp, signIn, saveComment, retrieveComments, signOut } = require("./dbModel");
+const { signUp, signIn, saveComment, retrieveComments, signOut, User } = require("./dbModel");
+const cors = require("cors");
+
+app.use(cors());
 const PORT = 5000;
 let userName;
 
@@ -44,3 +47,4 @@ app.get("/all", async (req, res) => {
   let commentsArray = await retrieveComments();
   res.send(commentsArray);
 });
+
