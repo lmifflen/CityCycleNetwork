@@ -1,6 +1,16 @@
+/* .main {
+  width: 100%;
+  text-align: center;
+  position:flex;
+  z-index: -1;
+
+} */
+
 .calg {
   height: 100%;
   width: 100%;
-  position: absolute;
   z-index: -1;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  position: flex;
 }

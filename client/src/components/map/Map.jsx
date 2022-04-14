@@ -40,8 +40,8 @@ const MapView = () => {
   }, []);
 
   return (
-    <div className="map">
-      <h2 className="title">The best Road Biking Routes in Calgary</h2>
+    <div className="map" id="mapbox">
+      <h2 className="title" >The best Road Biking Routes in Calgary</h2>
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
