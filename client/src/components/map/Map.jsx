@@ -1,12 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl";
-import Info from "../../info/Info";
+import Info from "../info/Info";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-
-// const layer = { 
-//   name: "points",
 
 const MapView = () => {
   const [lng, setLng] = useState(-114.07);
@@ -40,44 +37,6 @@ const MapView = () => {
       setFeature(x);
       
     });
-
-    // map.on('load', () => {
-    //     map.addSource('park-pathways', {
-    //         type: 'vector',
-    //         url: 'mapbox://miffll.park-pathways'
-    //     });
-    //     map.addLayer({
-    //         'id': 'GreenwayNorth',
-    //         'type': 'line',
-    //         'source': 'park-pathways',
-    //         'source-layer': 'GreenwayNorth',
-    //         'layout': {
-    //             'line-join': 'round',
-    //             'line-cap': 'round'
-    //         },
-    //         'paint': {
-    //             'line-color': 'rgb(0, 255, 0)',
-    //             'line-width': 10
-    //         }
-    //     });
-        
-    //  map.on('click', (e) => {
-
-    //     const bbox = [
-    //         [e.point.x - 6, e.point.y - 6],
-    //         [e.point.x + 6, e.point.y + 6]
-    //     ];
-    //     let x = map.queryRenderedFeatures(bbox, {layers: ['GreenwayNorth', 'GreenwaySouth',]});
-    //     setFeature(x);
-    //     console.log(x);
-
-    //     // setFeature(map.queryRenderedFeatures(bbox, {layers: [map.getSource('composite').vectorLayerIds]}));
-        
-        
-    // });
-    // console.log(map.getSource('composite').vectorLayerIds)
-  
-    // });
   }, []);
 
   return (
