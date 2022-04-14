@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl";
+import Info from "../info/Info";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -10,6 +11,7 @@ const MapView = () => {
   const [zoom, setZoom] = useState(12);
 
   const mapContainer = useRef(null);
+  const [feature, setFeature] = useState(null);
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -24,6 +26,17 @@ const MapView = () => {
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
     });
+
+    map.on('click', (e) => {
+
+      const bbox = [
+          [e.point.x - 6, e.point.y - 6],
+          [e.point.x + 6, e.point.y + 6]
+      ];
+      let x = map.queryRenderedFeatures(bbox);
+      setFeature(x);
+      
+    });
   }, []);
 
   return (
@@ -37,6 +50,7 @@ const MapView = () => {
           className="map-container"
           id="mapbox"
         ></div>
+        {feature && (<Info feature={feature}></Info>)}
     </div>
   );
 };
