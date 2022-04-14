@@ -1,8 +1,4 @@
 const mongoose = require("mongoose");
-require('dotenv').config();
-const connectionUrl=process.env.MONGO_URI;
-console.log("check atlas connection", connectionUrl);
+mongoose.connect("mongodb://localhost:27017/CCNdb");
 
-mongoose.connect(connectionUrl);
-
-module.exports = mongoose;
+module.exports = mongoose
