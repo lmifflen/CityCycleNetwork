@@ -18,7 +18,7 @@ const MapView = () => {
       container: mapContainer.current,
       style: "mapbox://styles/miffll/cl1ful06h003y14nwehytpg6w/draft",
       center: [-114.07, 51.05],
-      zoom: zoom,
+      zoom: 12,
     });
 
     map.on("move", () => {
