@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const mongoose = require("mongoose");
+const mongoose = require("./mongoose");
 
 let signedIn = false;
 
@@ -38,7 +38,6 @@ const signUp = async (name, email, password) => {
     user = await User.create({ name, email, password });
     singedIn = true;
     console.log("You have successfully signed up");
-    
   } else {
     user = "You have already singed up. Go to sign in";
     console.log("You have already singed up. Go to sign in"); //need to put some action or page navigation here
@@ -57,30 +56,28 @@ const signIn = async (email, password) => {
   return user;
 };
 
-const signOut = async()=> {
-  signedIn = false
-  console.log("Sign In status: ", signedIn)
-  return signedIn
-}
+const signOut = async () => {
+  signedIn = false;
+  console.log("Sign In status: ", signedIn);
+  return signedIn;
+};
 
 const saveComment = async (name, comment) => {
-  let savedComment
+  let savedComment;
   if (signedIn) {
     savedComment = await Comment.create({ name, comment });
   } else {
-    savedComment="Please sign in first"
+    savedComment = "Please sign in first";
     console.log(saveComment); //need to put this in web page
   }
-  return savedComment
+  return savedComment;
 };
 
 const retrieveComments = async () => {
-  let connection = await MongoClient.connect("mongodb://localhost:27017")
-  let collection = await connection.db("CCNdb").collection("comments")
+  let connection = await MongoClient.connect("mongodb://localhost:27017");
+  let collection = await connection.db("CCNdb").collection("comments");
   let commentsArray = await collection.find({}).toArray();
   return commentsArray;
 };
 
-
-
-module.exports = { signUp, signIn, saveComment, retrieveComments, signOut, User, };
+module.exports = { signUp, signIn, saveComment, retrieveComments, signOut };
