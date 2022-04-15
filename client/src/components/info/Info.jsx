@@ -80,8 +80,21 @@ const info = {
   },
   WesternHeadworksCanalPathway: {
     name: "Western Headworks Canal Pathway",
-    description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running from the Bow River in the city centre North to the West Nose Creek Park following greenway along the Nose Creek.",
-  }
+    description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running alongside the Western Headworks main canal from the Max Bell Centre all the way to Chestermere. This pathway will take you through the industrial heartland of the city.",
+  },
+  WesternHeadworksCanalPathwayN: {
+    name: "Western Headworks Canal Pathway",
+    description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running alongside the Western Headworks main canal from the Max Bell Centre all the way to Chestermere. This pathway will take you through the industrial heartland of the city.",
+  },
+  GreenwayConnectionNorth: {
+    name: "Greenway Connection North",
+    description: "This is a short section of the regional Greenway that connects that the rider needs to cycle along the street - there is no cyclepath here.",
+  },
+  GreenwayConnectionSouth: {
+    name: "Greenway Connection South",
+    description: "This is a short section of the regional Greenway that connects that the rider needs to cycle along the street - there is no cyclepath here.",
+  },
+ 
 };
 const Info = (props) => {
   const { feature } = props;
