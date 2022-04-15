@@ -3,13 +3,15 @@ import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import "./Navbar.css";
 import Img1 from "../../images/bike2.jpg";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0, User } from "@auth0/auth0-react";
+
 
 export default function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { user } = useAuth0();
 
   return (
     <div className="navbar">
@@ -39,6 +41,7 @@ export default function Navbar() {
               <a href="#">Contact</a>
             </p>
           </li>
+          <li>{isAuthenticated && (<p><b>Hello {user.nickname}</b></p>)}</li>
           <div>
             {!isAuthenticated && (
               <button className="btn" onClick={() => loginWithRedirect({})}>
