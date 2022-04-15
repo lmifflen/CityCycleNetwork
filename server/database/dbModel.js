@@ -1,83 +1,72 @@
 const { MongoClient } = require("mongodb");
 const mongoose = require("./mongoose");
 
-let signedIn = false;
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-});
+// //this username for test only.
+// let userName = "adnan123";
 
-const commentSchema = new mongoose.Schema({
+//temp variable for testing
+// let comment = `edited from ${userName}`;
+
+//need to change signedIn based on sign in status
+let signedIn = true;
+
+const { Schema, model } = mongoose;
+
+const commentSchema = new Schema({
   name: String,
   comment: String,
   createdAt: {
-    type: Date,
-    default: new Date(),
+    type: String,
+    default: new Date().toString().substring(4, 25),
   },
 });
 
-const User = mongoose.model("User", userSchema);
-const Comment = mongoose.model("Comment", commentSchema);
+const Comment = model("Comment", commentSchema);
 
-const signUp = async (name, email, password) => {
-  let user;
-  let checkEmail = await User.findOne({ email: email });
-
-  if (checkEmail === null) {
-    user = await User.create({ name, email, password });
-    singedIn = true;
-    console.log("You have successfully signed up");
-  } else {
-    user = "You have already singed up. Go to sign in";
-    console.log("You have already singed up. Go to sign in"); //need to put some action or page navigation here
-  }
-  return user;
-};
-
-const signIn = async (email, password) => {
-  let user = await User.findOne({ email: email, password: password });
-  if (user !== null) {
-    signedIn = true; //need to put action to enable comment box here
-  } else {
-    user = "Invalid credentials or not signed up";
-  }
-  console.log(user); //need to put relevant action in web page
-  return user;
-};
-
-const signOut = async () => {
-  signedIn = false;
-  console.log("Sign In status: ", signedIn);
-  return signedIn;
-};
-
-const saveComment = async (name, comment) => {
-  let savedComment;
+const addComment = async (name, comment) => {
+  let addedComment;
   if (signedIn) {
-    savedComment = await Comment.create({ name, comment });
+    addedComment = await Comment.create({ name, comment });
+    console.log("comment added: ", addedComment);
   } else {
-    savedComment = "Please sign in first";
-    console.log(saveComment); //need to put this in web page
+    addedComment = "Please sign in first";
+    console.log(addedComment); //need to put this in web page
   }
-  return savedComment;
+  return addedComment;
 };
 
-const retrieveComments = async () => {
-  let connection = await MongoClient.connect("mongodb://localhost:27017");
-  let collection = await connection.db("CCNdb").collection("comments");
-  let commentsArray = await collection.find({}).toArray();
+const editComment = async (name, comment) => {
+  let editedComment;
+  if (signedIn) {
+    editedComment = await Comment.findOneAndUpdate({ name, comment });
+    console.log("Comment edited: ", editedComment);
+  } else {
+    editedComment = "Please sign in first";
+  }
+  return editedComment;
+};
+
+const deleteComment = async (name, comment) => {
+  let deletedComment;
+  if (signedIn) {
+    deletedComment = await Comment.findOneAndDelete({ name, comment });
+    console.log("Comment deleted successfully");
+  } else {
+    deletedComment = "Please sign in first";
+  }
+};
+
+const allComments = async () => {
+  let commentsArray = await Comment.find();
+  console.log(commentsArray);
   return commentsArray;
 };
 
-module.exports = { signUp, signIn, saveComment, retrieveComments, signOut };
+
+module.exports = {
+  addComment,
+  editComment,
+  deleteComment,
+  allComments,
+};
