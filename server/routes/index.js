@@ -9,7 +9,7 @@ const {
   allComments,
 } = require("../database/dbModel");
 
-//retrieve username from database
+//retrieve username from database after auth
 let userName = "";
 
 //To add new comment
