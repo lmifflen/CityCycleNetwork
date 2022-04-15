@@ -50,7 +50,9 @@ const MapView = () => {
           className="map-container"
           id="mapbox"
         ></div>
-        {feature && (<Info feature={feature}></Info>)}
+       <div className="info"> 
+         {feature && (<Info feature={feature}></Info>)} 
+       </div> 
     </div>
   );
 };
