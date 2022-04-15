@@ -78,6 +78,10 @@ const info = {
       name: "Nose Hill Park",
       description: "Nose hill park is a large park in the north of the city. It is a popular destination for cyclists and is a great place to watch the city skyline.",
   },
+  WesternHeadworksCanalPathway: {
+    name: "Western Headworks Canal Pathway",
+    description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running from the Bow River in the city centre North to the West Nose Creek Park following greenway along the Nose Creek.",
+  }
 };
 const Info = (props) => {
   const { feature } = props;
