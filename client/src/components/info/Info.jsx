@@ -64,6 +64,20 @@ const info = {
     description:
       "The Rotary/Mattamy Greenway links parks, natural areas, greenspaces, river valleys and citizens. The Rotary/Mattamy Greenway is a 145km urban pathway system that encircles the entire City of Calgary. This major pathway transportation network serves Calgarians by providing a connected system throughout 55 communities around Calgary and also connects with almost 1000km of existing pathways. Highlights in the North part of the system include sections of the Bow River Pathway, and 12 Mile Coulee. In the South sections go along the Glenmore Reservoir, through Fish Creek Provincial Park, and along the Bow River Pathway. Some sections along the eastern side of the city feel much more urban running as raised cycle paths along a busy road.",
   },
+  NoseCreekNoseHillCon: {
+    name: "Nose Creek Nose Hill Connection",
+    description:
+      "This section of pathway connects the Nose Creek Pathway with the Nose Hill Pathway. Generally along a greenway there is a short section through a subdivision.",
+  },
+  NoseCreekPathway: {
+    name: "Nose Creek Pathway",
+    description:
+      "The Nose Creek Pathway is a part of Calgary's regional pathway system and the Trans-Canada trail - running from the Bow River in the city centre North to the West Nose Creek Park following greenway along the Nose Creek.",
+  },
+  NoseHillPark: {
+      name: "Nose Hill Park",
+      description: "Nose hill park is a large park in the north of the city. It is a popular destination for cyclists and is a great place to watch the city skyline.",
+  },
 };
 const Info = (props) => {
   const { feature } = props;
