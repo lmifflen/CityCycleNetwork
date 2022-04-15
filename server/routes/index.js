@@ -24,7 +24,7 @@ router.post("/add", async (req, res, next) => {
   }
 });
 
-//To add a comment
+//To edit a comment
 router.post("/edit", async (req, res, next) => {
   try {
     let comment = req.body;
