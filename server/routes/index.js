@@ -1,51 +1,62 @@
 var express = require("express");
 var router = express.Router();
+var debug = require("debug")("server:routes");
+
 const {
-  signUp,
-  signIn,
-  saveComment,
-  retrieveComments,
-  signOut,
+  addComment,
+  editComment,
+  deleteComment,
+  allComments,
 } = require("../database/dbModel");
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+//retrieve username from database
+let userName = "";
 
-router.get("/signup", async (req, res, next) => {
-  let name = req.query.name;
-  let email = req.query.email;
-  let password = req.query.password;
-  let user = await signUp(name, email, password);
-  res.send(user);
-});
-
-router.get("/signin", async (req, res, next) => {
-  let email = req.query.email;
-  let password = req.query.password;
-  let user = await signIn(email, password);
-  if (typeof user !== String) {
-    userName = user.name;
+//To add new comment
+router.post("/add", async (req, res, next) => {
+  try {
+    let comment = req.body;
+    let addedComment = await addComment(userName, comment);
+    console.log(addComment);
+    res.send(addedComment);
+  } catch (err) {
+    debug(err.message);
   }
-  console.log(userName);
-  res.send(user);
 });
 
-router.get("/signout", async (req, res, next) => {
-  let status = await signOut();
-  res.send("Sign in status is:", status);
+//To add a comment
+router.post("/edit", async (req, res, next) => {
+  try {
+    let comment = req.body;
+    let editedComment = await editComment(userName, comment);
+    console.log(editedComment);
+    res.send(editedComment);
+  } catch (err) {
+    debug(err.message);
+  }
 });
 
-router.get("/review", async (req, res, next) => {
-  let comment = req.query.comment;
-  let savedComment = await saveComment(userName, comment);
-  res.send(savedComment);
+//To delete a comment
+router.post("/delete", async (req, res, next) => {
+  try {
+    let comment = req.body;
+    await deleteComment(comment);
+    res.send("Deleted successfully");
+    console.log();
+  } catch (err) {
+    debug(err.message);
+  }
 });
 
-router.get("/allreviews", async (req, res, next) => {
-  let commentsArray = await retrieveComments();
-  res.send(commentsArray);
+//To retrieve all comments
+router.post("/allcomments", async (req, res, next) => {
+  try {
+    let commentsArray = await allComments();
+    // console.log(commentsArray)
+    res.send(commentsArray);
+  } catch (err) {
+    debug(err.message);
+  }
 });
 
 module.exports = router;
