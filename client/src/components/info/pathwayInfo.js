@@ -8,6 +8,8 @@ import EdgemontBLVD from "../../images/EdgemontBLVD.png";
 import EdgemontRavine from "../../images/EdgemontRavine.jpg";
 import NorthGlenmore from "../../images/NorthGlenmore.jpg";
 import ElbowRiver from "../../images/ElbowRiver.jpg";
+import GreenwayNorth  from "../../images/GreenwayNorth.jpg";
+import GreenwaySouth from "../../images/GreenwaySouth.jpg";
 
 
 
@@ -83,11 +85,13 @@ const info = {
       name: "Greenway North",
       description:
         "The Rotary/Mattamy Greenway links parks, natural areas, greenspaces, river valleys and citizens. The Rotary/Mattamy Greenway is a 145km urban pathway system that encircles the entire City of Calgary. This major pathway transportation network serves Calgarians by providing a connected system throughout 55 communities around Calgary and also connects with almost 1000km of existing pathways. Highlights in the North part of the system include sections of the Bow River Pathway, and 12 Mile Coulee. In the South sections go along the Glenmore Reservoir, through Fish Creek Provincial Park, and along the Bow River Pathway. Some sections along the eastern side of the city feel much more urban running as raised cycle paths along a busy road.",
+      image: <img className="img" src={GreenwayNorth} alt="" />
     },
     GreenwaySouth: {
       name: "Greenway South",
       description:
         "The Rotary/Mattamy Greenway links parks, natural areas, greenspaces, river valleys and citizens. The Rotary/Mattamy Greenway is a 145km urban pathway system that encircles the entire City of Calgary. This major pathway transportation network serves Calgarians by providing a connected system throughout 55 communities around Calgary and also connects with almost 1000km of existing pathways. Highlights in the North part of the system include sections of the Bow River Pathway, and 12 Mile Coulee. In the South sections go along the Glenmore Reservoir, through Fish Creek Provincial Park, and along the Bow River Pathway. Some sections along the eastern side of the city feel much more urban running as raised cycle paths along a busy road.",
+      image: <img className="img" src={GreenwaySouth} alt="" />
     },
     NoseCreekNoseHillCon: {
       name: "Nose Creek Nose Hill Connection",
