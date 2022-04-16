@@ -12,6 +12,9 @@ import GreenwayNorth  from "../../images/GreenwayNorth.jpg";
 import GreenwaySouth from "../../images/GreenwaySouth.jpg";
 import GreenwayConNorth from "../../images/GreenwayConNorth.png";
 import GreenwayConSouth from "../../images/GreenwayConSouth.png";
+import HuntHills from "../../images/HuntHills.png";
+import NoseCreek from "../../images/NoseCreek.jpg";
+import NoseHillPark from "../../images/NoseHillPark.jpg";
 
 
 
@@ -99,15 +102,18 @@ const info = {
       name: "Nose Creek Nose Hill Connection",
       description:
         "This section of pathway connects the Nose Creek Pathway with the Nose Hill Pathway. Generally along a greenway there is a short section through a subdivision.",
+      image: <img className="img" src={HuntHills} alt="" />
     },
     NoseCreekPathway: {
       name: "Nose Creek Pathway",
       description:
         "The Nose Creek Pathway is a part of Calgary's regional pathway system and the Trans-Canada trail - running from the Bow River in the city centre North to the West Nose Creek Park following greenway along the Nose Creek.",
+        image: <img className="img" src={NoseCreek} alt="" />
     },
     NoseHillPark: {
         name: "Nose Hill Park",
         description: "Nose hill park is a large park in the north of the city. It is a popular destination for cyclists and is a great place to watch the city skyline.",
+        image: <img className="img" src={NoseHillPark} alt="" />
     },
     WesternHeadworksCanalPathway: {
       name: "Western Headworks Canal Pathway",
