@@ -3,7 +3,7 @@ import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import "./Navbar.css";
 import Img1 from "../../images/bike2.jpg";
-import { useAuth0, User } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Navbar() {
@@ -23,22 +23,22 @@ export default function Navbar() {
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li>
             <p>
-              <a href="/">Home</a>
+              <a className="menu" href="/">Home</a>
             </p>
           </li>
           <li>
             <p>
-              <a href="#mapbox">Map</a>
+              <a className="menu" href="#mapbox">Map</a>
             </p>
           </li>
           <li>
             <p>
-              <a href="#">About</a>
+              <a className="menu" href="/">About</a>
             </p>
           </li>
           <li>
             <p>
-              <a href="#">Contact</a>
+              <a className="menu" href="/">Contact</a>
             </p>
           </li>
           <li>{isAuthenticated && (<p><b>Hello {user.nickname}</b></p>)}</li>
