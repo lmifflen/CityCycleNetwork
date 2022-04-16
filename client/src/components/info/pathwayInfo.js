@@ -1,6 +1,10 @@
 import EastVillageCyclepath from '../../images/EastVillageCyclepath.jpg';
 import FortCalgary_1 from "../../images/FortCalgary_1.jpg";
 import BowRiverPathwaySE from "../../images/BowRiverPathwaySE.jpg";
+import PeaceBridge from "../../images/PeaceBridge.jpg";
+import BowCyclepath from "../../images/BowCyclepath.jpg";
+import LouiseBridge from "../../images/LouiseBridge.jpg";
+
 
 
 const info = {
@@ -8,6 +12,7 @@ const info = {
       name: "Bow River Valley Pathway NE",
       description:
         "The Bow River Pathway system is a part of Calgary's regional pathway system - running from the Bears Paw Dam in the northwest of the city all the way the to eastern edge of Fish Creek Provincial Park in the south east of the city.  The Bow River Pathway provides approximately 48 kilometers of paved pathway often running along both edges of the Bow River. There are sections of the pathway that are shared with pedestirains and some sections that are dedicated for cyclists. There are a myriad of bridge crossings with dedicated cyclelanes providing ways to make loops of any desired length. Highlights along the pathway include views of the city skyline, the Bow River, mountain scape, and Fish Creek Provincial Park.",
+        image: <img className="img" src={BowCyclepath} alt="" />
     },
     BowRiverValleyPathwaySE: {
       name: "Bow River Valley Pathway SE",
@@ -20,11 +25,13 @@ const info = {
       name: "Bow River N",
       description:
         "The Bow River Pathway is a part of Calgary's regional pathway system - running from the Bears Paw Dam in the northwest of the city all the way the to eastern edge of Fish Creek Provincial Park in the south east of the city.  The Bow River N provides approximately 48 kilometers of paved pathway often running along both edges of the Bow River. There are sections of the pathway that are shared with pedestirains and some sections that are dedicated for cyclists. There are a myriad of bridge crossings with dedicated cyclelanes providing ways to make loops of any desired length. Highlights along the pathway include views of the city skyline, the Bow River, mountain scape, and Fish Creek Provincial Park.",
+        image: <img className="img" src={PeaceBridge} alt="" />
     },
     BowRiverValleyPathway: {
       name: "Bow River Valley Pathway",
       description:
         "The Bow River Pathway system is a part of Calgary's regional pathway system - running from the Bears Paw Dam in the northwest of the city all the way the to eastern edge of Fish Creek Provincial Park in the south east of the city.  The Bow River Pathway provides approximately 48 kilometers of paved pathway often running along both edges of the Bow River. There are sections of the pathway that are shared with pedestirains and some sections that are dedicated for cyclists. There are a myriad of bridge crossings with dedicated cyclelanes providing ways to make loops of any desired length. Highlights along the pathway include views of the city skyline, the Bow River, mountain scape, and Fish Creek Provincial Park.",
+        image: <img className="img" src={LouiseBridge} alt="" />
     },
     BowRiverValleyPathwayS: {
       name: "Bow River Valley Pathway S",
@@ -36,6 +43,7 @@ const info = {
       name: "Bow River Cycle Bridges",
       description:
         "The Bow River Pathway system is a part of Calgary's regional pathway system - running from the Bears Paw Dam in the northwest of the city all the way the to eastern edge of Fish Creek Provincial Park in the south east of the city.  The Bow River Pathway provides approximately 48 kilometers of paved pathway often running along both edges of the Bow River. There are sections of the pathway that are shared with pedestirains and some sections that are dedicated for cyclists. There are a myriad of bridge crossings with dedicated cyclelanes providing ways to make loops of any desired length. Highlights along the pathway include views of the city skyline, the Bow River, mountain scape, and Fish Creek Provincial Park.",
+      image: <img className="img" src={PeaceBridge} alt="" />
     },
     EdgemontBLVD: {
       name: "Edgemont Boulevard",
