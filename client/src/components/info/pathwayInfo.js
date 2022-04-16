@@ -15,6 +15,8 @@ import GreenwayConSouth from "../../images/GreenwayConSouth.png";
 import HuntHills from "../../images/HuntHills.png";
 import NoseCreek from "../../images/NoseCreek.jpg";
 import NoseHillPark from "../../images/NoseHillPark.jpg";
+import WesternHeadworks from "../../images/WesternHeadworks.jpg";
+import Heritage from "../../images/Heritage.png";
 
 
 
@@ -118,10 +120,12 @@ const info = {
     WesternHeadworksCanalPathway: {
       name: "Western Headworks Canal Pathway",
       description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running alongside the Western Headworks main canal from the Max Bell Centre all the way to Chestermere. This pathway will take you through the industrial heartland of the city.",
+      image: <img className="img" src={WesternHeadworks} alt="" />
     },
     WesternHeadworksCanalPathwayN: {
       name: "Western Headworks Canal Pathway",
       description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running alongside the Western Headworks main canal from the Max Bell Centre all the way to Chestermere. This pathway will take you through the industrial heartland of the city.",
+      image: <img className="img" src={WesternHeadworks} alt="" />
     },
     GreenwayConnectionNorth: {
       name: "Greenway Connection North",
@@ -137,10 +141,12 @@ const info = {
     PumphousePark: {
       name: "Pumphouse Park",
       description: "Pumphouse park is a small park with cyclepaths on the west side of downtown. It is useful for connecting to the downtown cycle network from the Bow River Pathway.",
+      image: <img className="img" src={BowCyclepath} alt="" />
     },
     Heritage: {
       name: "Heritage Cycletrack",
       description: "A raised cycletrack running along Heritage drive from the Bow River Pathway to the Glenmore Reservoir Pathway. It is a great way to connect eastern and western sections of the regional pathways.",
+      image: <img className="img" src={Heritage} alt="" />
     },
    
   };
