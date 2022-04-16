@@ -22,6 +22,9 @@
   height: 80%;
   align-items: center;
   vertical-align:middle;
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
 
 }
 
@@ -69,12 +72,13 @@ h1 {
 
   .navbar .nav-menu li a {
     font-size: 2rem;
+   
   }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-* {
+.navbar * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -83,8 +87,7 @@ h1 {
 ul {
   list-style-type: none;
 }
-
-a {
+.menu {
   text-decoration: none;
   color: #333;
   font-size: 20px;
