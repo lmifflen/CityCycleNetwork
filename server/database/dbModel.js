@@ -1,15 +1,14 @@
 const { MongoClient } = require("mongodb");
 const mongoose = require("./mongoose");
 
-
 // //this username for test only.
-// let userName = "adnan123";
+// let userName = "adnan2";
 
 //temp variable for testing
-// let comment = `edited from ${userName}`;
+// let comment = `adnan4209211`;
 
 //need to change signedIn based on sign in status
-let signedIn = true;
+let signedIn = false;
 
 const { Schema, model } = mongoose;
 
@@ -27,33 +26,33 @@ const Comment = model("Comment", commentSchema);
 const addComment = async (name, comment) => {
   let addedComment;
   if (signedIn) {
-    addedComment = await Comment.create({ name, comment });
-    console.log("comment added: ", addedComment);
+    addedComment = await Comment.create({ name: name, comment: comment });
+    console.log(addedComment);
   } else {
-    addedComment = "Please sign in first";
-    console.log(addedComment); //need to put this in web page
+    console.log("User not signed in"); //need to put this in web page
   }
-  return addedComment;
 };
 
 const editComment = async (name, comment) => {
   let editedComment;
   if (signedIn) {
-    editedComment = await Comment.findOneAndUpdate({ name, comment });
-    console.log("Comment edited: ", editedComment);
+    editedComment = await Comment.findOneAndUpdate(
+      { name: name },
+      { comment: comment }
+    );
+    console.log(editedComment);
   } else {
-    editedComment = "Please sign in first";
+    console.log("User not signed in");
   }
-  return editedComment;
 };
 
-const deleteComment = async (name, comment) => {
+const deleteComment = async (name) => {
   let deletedComment;
   if (signedIn) {
-    deletedComment = await Comment.findOneAndDelete({ name, comment });
+    deletedComment = await Comment.findOneAndDelete({ name: name });
     console.log("Comment deleted successfully");
   } else {
-    deletedComment = "Please sign in first";
+    deletedComment = "User not signed in";
   }
 };
 
@@ -62,7 +61,6 @@ const allComments = async () => {
   console.log(commentsArray);
   return commentsArray;
 };
-
 
 module.exports = {
   addComment,
