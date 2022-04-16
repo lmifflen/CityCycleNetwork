@@ -6,6 +6,8 @@ import BowCyclepath from "../../images/BowCyclepath.jpg";
 import LouiseBridge from "../../images/LouiseBridge.jpg";
 import EdgemontBLVD from "../../images/EdgemontBLVD.png";
 import EdgemontRavine from "../../images/EdgemontRavine.jpg";
+import NorthGlenmore from "../../images/NorthGlenmore.jpg";
+import ElbowRiver from "../../images/ElbowRiver.jpg";
 
 
 
@@ -63,6 +65,7 @@ const info = {
       name: "Elbow River Pathway",
       description:
         "The Elbow River Pathway is a part of Calgary's regional pathway system - running from the Bow River in the city centre to the Glenmore Reservoir in the Southwest of the city. Approximatly 10 kilometers long and predominatly seperated ashfault pathway through connecting parks; it passes the historic stampede grounds, Lindsey Park, and Sandy Beach.",
+      image: <img className="img" src={ElbowRiver} alt="" />
     },
     FortCalgary: {
       name: "Fort Calgary",
@@ -74,6 +77,7 @@ const info = {
       name: "Glenmore Reservoir Pathway",
       description:
         "The Glenmore Reservoir Pathway is a part of Calgary's regional pathway system - partially included in the elbow river pathway, and the regional greenway. This pathway wraps around the glenmore reservoir providing access to both the North and South Glenmore parks, beautiful views of the reservoir and the mountains to the west.",
+      image: <img className="img" src={NorthGlenmore} alt="" />
     },
     GreenwayNorth: {
       name: "Greenway North",
