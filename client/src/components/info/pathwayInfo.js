@@ -4,6 +4,8 @@ import BowRiverPathwaySE from "../../images/BowRiverPathwaySE.jpg";
 import PeaceBridge from "../../images/PeaceBridge.jpg";
 import BowCyclepath from "../../images/BowCyclepath.jpg";
 import LouiseBridge from "../../images/LouiseBridge.jpg";
+import EdgemontBLVD from "../../images/EdgemontBLVD.png";
+import EdgemontRavine from "../../images/EdgemontRavine.jpg";
 
 
 
@@ -49,11 +51,13 @@ const info = {
       name: "Edgemont Boulevard",
       description:
         "Edgemont Boulavard provides ways to to connect Nose Hill Park to the Bow River Pathway system via the Dalhousie and Varsity neighborhood pathways, or to the Greenway North via the Edgemont Ravine pathway and the Nose Creek Pathway. Edgemont Boulavard cyclepath is raised and sepereated from the roadway.",
+      image: <img className="img" src={EdgemontBLVD} alt="" />
     },
     EdgemontRavineConnection: {
       name: "Edgemont Ravine Connection",
       description:
-        "The Edgemont Ravine cyclepath is paved cyclepath that can be used to connece the Nose Creek Pathway with Nose Creek Park via Edgemon BLVD. This is a beautiful network of pathways through ravines that are entirely separated from the main road system and surrounded byt the community of Edgemont.",
+        "The Edgemont Ravine cyclepath is paved cyclepath that can be used to connece the Nose Creek Pathway with Nose Creek Park via Edgemont BLVD. This is a beautiful network of pathways through ravines that are entirely separated from the main road system and surrounded byt the community of Edgemont.",
+      image: <img className="img" src={EdgemontRavine} alt="" />
     },
     ElbowRiverPathway: {
       name: "Elbow River Pathway",
