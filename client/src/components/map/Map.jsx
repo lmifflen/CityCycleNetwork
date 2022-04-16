@@ -45,6 +45,7 @@ const MapView = () => {
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
+      <div className="mapandinfo">
       <div
           ref={mapContainer}
           className="map-container"
@@ -53,6 +54,7 @@ const MapView = () => {
        <div className="info"> 
          {feature && (<Info feature={feature}></Info>)} 
        </div> 
+       </div>
     </div>
   );
 };

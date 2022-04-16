@@ -14,9 +14,16 @@
   font-style: inherit;
 }
 
+.mapandinfo {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content:left;
+  align-items:center;
+}
 .map-container {
   height: 500px;
-  width: auto;
+  width: 70%;
   margin-left: 5%;
   margin-right: 5%;
   /* position: relative; */
@@ -36,9 +43,14 @@
   border-radius: 4px;
 }
 
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
 .info {
-  margin-top: 50px;
-  margin-left: 5%;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: 80%;
   margin-right: 5%;
   background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
