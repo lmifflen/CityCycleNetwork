@@ -10,6 +10,8 @@ import NorthGlenmore from "../../images/NorthGlenmore.jpg";
 import ElbowRiver from "../../images/ElbowRiver.jpg";
 import GreenwayNorth  from "../../images/GreenwayNorth.jpg";
 import GreenwaySouth from "../../images/GreenwaySouth.jpg";
+import GreenwayConNorth from "../../images/GreenwayConNorth.png";
+import GreenwayConSouth from "../../images/GreenwayConSouth.png";
 
 
 
@@ -118,10 +120,13 @@ const info = {
     GreenwayConnectionNorth: {
       name: "Greenway Connection North",
       description: "This is a short section of the regional Greenway that connects that the rider needs to cycle along the street - there is no cyclepath here.",
+      image: <img className="img" src={GreenwayConNorth} alt="" />
+      
     },
     GreenwayConnectionSouth: {
       name: "Greenway Connection South",
       description: "This is a short section of the regional Greenway that connects that the rider needs to cycle along the street - there is no cyclepath here.",
+      image: <img className="img" src={GreenwayConSouth} alt="" />
     },
     PumphousePark: {
       name: "Pumphouse Park",
