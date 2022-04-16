@@ -1,4 +1,5 @@
 import EastVillageCyclepath from '../../images/EastVillageCyclepath.jpg';
+import FortCalgary_1 from "../../images/FortCalgary_1.jpg";
 
 
 const info = {
@@ -51,7 +52,8 @@ const info = {
     FortCalgary: {
       name: "Fort Calgary",
       description:
-        " Fort Calgary is the locatet at the confluence of the Bow River and the Elbow River. Historically it was an outpost for the Northwest Mounted Police. Located in the east village, the pathways serve as a connection between the downtown cycle network and the Bow river pathway.",
+        " Fort Calgary is the located at the confluence of the Bow River and the Elbow River. Historically it was an outpost for the Northwest Mounted Police. Located in the east village, the pathways serve as a connection between the downtown cycle network and the Bow river pathway.",
+      image: <img className="img" src={FortCalgary_1} alt="" />
     },
     GlenmoreReservoirPathway: {
       name: "Glenmore Reservoir Pathway",

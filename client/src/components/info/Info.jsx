@@ -1,6 +1,7 @@
 import info from "./pathwayInfo";
 import './Info.css'
-import BowCyclepath from "../../images/BowCyclepath.jpg";
+import  BowCyclepath from "../../images/BowCyclepath.jpg";
+
 
 const Info = (props) => {
   const { feature } = props;
