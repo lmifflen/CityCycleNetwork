@@ -167,11 +167,13 @@ const info = {
     },
     FiftyThirdStreetNW: {
       name: "53rd Street NW",
-      description: "A section of elevated cyclepath along 53rd St NW. It is a good way to connect the greenways between the Bow River Pathway and Nose Hill Park.",
+      description: "A section of septerated cyclepath along 53rd St NW. It is a good way to connect the greenways between the Bow River Pathway and Nose Hill Park.",
+      image: <img className="img" src={FiftyThirdStreetNW} alt="" />
     },
     BowRiverToInglewood: {
       name: "Bow River - Inglwood Connection",
       description: "This is a section of seperated Cycleway through Saint Patrick's Island, Inglewood, and Ramsey. It is a great way to connect different side of the Bow River Pathway, or to access amenities in the communites of Inglewood and Ramsey like breweries or cafes.",
+      image: <img className="img" src={Inglewood} alt="" />
     },
     DTCycleNetwork: {
       name: "Downtown Cycle Track",
