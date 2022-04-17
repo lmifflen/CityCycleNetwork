@@ -18,6 +18,12 @@ import NoseHillPark from "../../images/NoseHillPark.jpg";
 import WesternHeadworks from "../../images/WesternHeadworks.jpg";
 import Heritage from "../../images/Heritage.png";
 import DTCycleNetwork from "../../images/DTCycleNetwork.jpg";
+import VarsityRavine from "../../images/VarsityRavine.webp";
+import WestNoseCreek from "../../images/WestNoseCreek.jpg";
+import TwelveMileCoulee from "../../images/TwelveMileCoulee.jpg";
+import TrackCrossing from "../../images/TrackCrossing.png";
+import FiftyThirdStreetNW from "../../images/FiftyThirdStreetNW.png";
+import Inglewood from "../../images/Inglewood.jpg";
 
 
 
@@ -152,18 +158,22 @@ const info = {
     DalhousieToBowRiver: {
       name: "Dalhousie - Bow River Connection",
       description: "This is a section of greenway through the communities of Dalhousie and Varsity. It is great for connecting Nose Hill Park and the Bow River Pathway. There is a connection needed along 53rd St NW to connect the two areas.",
+      image: <img className="img" src={VarsityRavine} alt="" />
     },
     NoseCreekToGreenway: {
       name: "Nose Creek - Greenway Connection",
       description: "This is a a section of greenway that follows West Nose Creek through Nose Creek Park, and through the communities od Country Hills and Evanston.",
+      image: <img className="img" src={WestNoseCreek} alt="" />
     },
     TwelveMileCoulee: {
       name: "12 Mile Coulee",
       description: "Twelve Mile Coulee is in the northwest portion of the city and was established in 2001. The coulee and nearby road were originally named this because they were approximately 12 miles from the post office in Fort Calgary and the area served as a mail drop on the old stagecoach run to Cochrane. The Cyclepath runs through the coulee and along an elevated cycletrack adjaccent to Tuscany Boulevard. ",
+      image: <img className="img" src={TwelveMileCoulee} alt="" />
     },
     PumphouseParkToCycleTrack: {
       name: "Pumphouse Park - Cycle Track Connection",
       description: "This is a connection between the Bow River Pathway and the Downtown Cycle Track. Rider must cross over the rail tracks.",
+      image: <img className="img" src={TrackCrossing} alt="" />
     },
     FiftyThirdStreetNW: {
       name: "53rd Street NW",
