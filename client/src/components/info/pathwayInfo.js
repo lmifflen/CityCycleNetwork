@@ -17,6 +17,7 @@ import NoseCreek from "../../images/NoseCreek.jpg";
 import NoseHillPark from "../../images/NoseHillPark.jpg";
 import WesternHeadworks from "../../images/WesternHeadworks.jpg";
 import Heritage from "../../images/Heritage.png";
+import DTCycleNetwork from "../../images/DTCycleNetwork.jpg";
 
 
 
@@ -175,6 +176,7 @@ const info = {
     DTCycleNetwork: {
       name: "Downtown Cycle Track",
       description: "The downtown cycle track is a great way to connect the downtown area to the regional pathways. Access to historic Stephen Ave and all the ameninties of downtown Calgary, the Beltline, and the East End make this a must include when looking for après cycle locations.",
+      image: <img className="img" src={DTCycleNetwork} alt="" />
     },
    
   };
