@@ -1,14 +1,14 @@
 const { MongoClient } = require("mongodb");
 const mongoose = require("./mongoose");
 
-// //this username for test only.
-// let userName = "adnan2";
+// //temp username for test only.
+// let userName = "test1";
 
-//temp variable for testing
-// let comment = `adnan4209211`;
+//temp comment for testing
+// let comment = `test123456`;
 
 //need to change signedIn based on sign in status
-let signedIn = false;
+// let signedIn = true;
 
 const { Schema, model } = mongoose;
 
@@ -61,6 +61,9 @@ const allComments = async () => {
   console.log(commentsArray);
   return commentsArray;
 };
+
+//running this function for testing only
+// addComment(userName, comment)
 
 module.exports = {
   addComment,
