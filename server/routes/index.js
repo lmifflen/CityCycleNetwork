@@ -12,6 +12,11 @@ const {
 //retrieve username from database after auth
 let userName = "";
 
+/* GET express home page for testing. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
 //To add new comment
 router.post("/add", async (req, res, next) => {
   try {
@@ -49,7 +54,7 @@ router.post("/delete", async (req, res, next) => {
 });
 
 //To retrieve all comments. The return is an array of objects
-router.post("/allcomments", async (req, res, next) => {
+router.get("/allcomments", async (req, res, next) => {
   try {
     let commentsArray = await allComments();
     // console.log(commentsArray)
