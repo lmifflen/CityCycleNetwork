@@ -148,6 +148,23 @@ const info = {
       description: "A raised cycletrack running along Heritage drive from the Bow River Pathway to the Glenmore Reservoir Pathway. It is a great way to connect eastern and western sections of the regional pathways.",
       image: <img className="img" src={Heritage} alt="" />
     },
+    DalhousieToBowRiver: {
+      name: "Dalhousie - Bow River Connection",
+      description: "This is a section of greenway through the communities of Dalhousie and Varsity. It is great for connecting Nose Hill Park and the Bow River Pathway. There is a connection needed along 53rd St NW to connect the two areas.",
+    },
+    NoseCreekToGreenway: {
+      name: "Nose Creek - Greenway Connection",
+      description: "This is a a section of greenway that follows West Nose Creek through Nose Creek Park, and through the communities od Country Hills and Evanston.",
+    },
+    TwelveMileCoulee: {
+      name: "12 Mile Coulee",
+      description: "Twelve Mile Coulee is in the northwest portion of the city and was established in 2001. The coulee and nearby road were originally named this because they were approximately 12 miles from the post office in Fort Calgary and the area served as a mail drop on the old stagecoach run to Cochrane. The Cyclepath runs through the coulee and along an elevated cycletrack adjaccent to Tuscany Boulevard. ",
+    },
+    PumphouseParkToCycleTrack: {
+      name: "Pumphouse Park - Cycle Track Connection",
+      description: "This is a short section of greenway that connects the Pumphouse Park to the Bow River Pathway. It is a good way to connect the two areas.",
+
+
    
   };
 
