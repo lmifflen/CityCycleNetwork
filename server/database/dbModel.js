@@ -8,7 +8,7 @@ const mongoose = require("./mongoose");
 // let comment = `test123456`;
 
 //need to change signedIn based on sign in status
-// let signedIn = true;
+let signedIn = true;
 
 const { Schema, model } = mongoose;
 
