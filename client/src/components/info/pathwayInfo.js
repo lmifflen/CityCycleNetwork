@@ -162,9 +162,20 @@ const info = {
     },
     PumphouseParkToCycleTrack: {
       name: "Pumphouse Park - Cycle Track Connection",
-      description: "This is a short section of greenway that connects the Pumphouse Park to the Bow River Pathway. It is a good way to connect the two areas.",
-
-
+      description: "This is a connection between the Bow River Pathway and the Downtown Cycle Track. Rider must cross over the rail tracks.",
+    },
+    FiftyThirdStreetNW: {
+      name: "53rd Street NW",
+      description: "A section of elevated cyclepath along 53rd St NW. It is a good way to connect the greenways between the Bow River Pathway and Nose Hill Park.",
+    },
+    BowRiverToInglewood: {
+      name: "Bow River - Inglwood Connection",
+      description: "This is a section of seperated Cycleway through Saint Patrick's Island, Inglewood, and Ramsey. It is a great way to connect different side of the Bow River Pathway, or to access amenities in the communites of Inglewood and Ramsey like breweries or cafes.",
+    },
+    DTCycleNetwork: {
+      name: "Downtown Cycle Track",
+      description: "The downtown cycle track is a great way to connect the downtown area to the regional pathways. Access to historic Stephen Ave and all the ameninties of downtown Calgary, the Beltline, and the East End make this a must include when looking for après cycle locations.",
+    },
    
   };
 
