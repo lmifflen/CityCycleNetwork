@@ -1,15 +1,13 @@
 import React from "react";
-// import { FaFacebookF, FaInstagramSquare, FaLinkedinIn } from 'react-icons/fa';
 import "./Footer.css";
-import { AnimatedSocialIcon } from "react-animated-social-icons";
+// import { AnimatedSocialIcon } from "react-animated-social-icons";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="bikeknights">© 2022 Bike Knights</div>
-      
+{/*       
       <div className="social">Follow Us
-      {/* <div className="follow"></div> */}
         <AnimatedSocialIcon
           brandName="facebook"
           url="https://www.facebook.com"
@@ -40,7 +38,7 @@ const Footer = () => {
           animationDuration={0.8}
           style={{ padding: "1.5em" }}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
