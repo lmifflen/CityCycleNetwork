@@ -15,9 +15,10 @@ function App() {
     <Main />
     <MapView />
     {/* <Info /> */}
-    <Comments commentsUrl="http://localhost:3004/comments"
-      currentUserId="1"/>
-          <Footer />
+    <Comments />
+    {/* // commentsUrl="http://localhost:3004/comments"
+    //   currentUserId="1" */}
+             <Footer />
   </div>
   );
 }
