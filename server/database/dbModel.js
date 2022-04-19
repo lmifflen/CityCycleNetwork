@@ -1,15 +1,6 @@
 const { MongoClient } = require("mongodb");
 const mongoose = require("./mongoose");
 
-// //temp username for test only.
-// let userName = "test1";
-
-//temp comment for testing
-// let comment = `test123456`;
-
-//need to change signedIn based on sign in status
-let signedIn = true;
-
 const { Schema, model } = mongoose;
 
 const commentSchema = new Schema({
@@ -23,36 +14,37 @@ const commentSchema = new Schema({
 
 const Comment = model("Comment", commentSchema);
 
-const addComment = async (name, comment) => {
-  let addedComment;
-  if (signedIn) {
-    addedComment = await Comment.create({ name: name, comment: comment });
-    console.log(addedComment);
-  } else {
-    console.log("User not signed in"); //need to put this in web page
+const addComment = async (newComment) => {
+  try {
+    const addedComment = await Comment.create(newComment);
+    console.log("Comment added successfully");
+    return addedComment;
+  } catch (err) {
+    debug(err.message);
   }
 };
 
-const editComment = async (name, comment) => {
-  let editedComment;
-  if (signedIn) {
-    editedComment = await Comment.findOneAndUpdate(
-      { name: name },
-      { comment: comment }
+const editComment = async (updatedComment) => {
+  try {
+    const editedComment = await Comment.findOneAndUpdate(
+      { name: updatedComment.name },
+      { comment: updatedComment.comment }
     );
-    console.log(editedComment);
-  } else {
-    console.log("User not signed in");
+    console.log("Comment edited successfully");
+    return editedComment;
+  } catch (err) {
+    debug(err.message);
   }
 };
 
-const deleteComment = async (name) => {
-  let deletedComment;
-  if (signedIn) {
-    deletedComment = await Comment.findOneAndDelete({ name: name });
+const deleteComment = async (deletingComment) => {
+  try {
+    const deletedComment = await Comment.findOneAndDelete({
+      name: deletingComment.name,
+    });
     console.log("Comment deleted successfully");
-  } else {
-    deletedComment = "User not signed in";
+  } catch (err) {
+    debug(err.message);
   }
 };
 
@@ -61,9 +53,6 @@ const allComments = async () => {
   console.log(commentsArray);
   return commentsArray;
 };
-
-//running this function for testing only
-// addComment(userName, comment)
 
 module.exports = {
   addComment,
