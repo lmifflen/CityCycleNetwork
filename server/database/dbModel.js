@@ -4,8 +4,9 @@ const mongoose = require("./mongoose");
 const { Schema, model } = mongoose;
 
 const commentSchema = new Schema({
-  name: String,
+  username:String,
   comment: String,
+  route: {type:String, default:""},
   createdAt: {
     type: String,
     default: new Date().toString().substring(4, 25),
@@ -27,7 +28,7 @@ const addComment = async (newComment) => {
 const editComment = async (updatedComment) => {
   try {
     const editedComment = await Comment.findOneAndUpdate(
-      { name: updatedComment.name },
+      { username: updatedComment.username },
       { comment: updatedComment.comment }
     );
     console.log("Comment edited successfully");
@@ -40,7 +41,7 @@ const editComment = async (updatedComment) => {
 const deleteComment = async (deletingComment) => {
   try {
     const deletedComment = await Comment.findOneAndDelete({
-      name: deletingComment.name,
+      username: deletingComment.username,
     });
     console.log("Comment deleted successfully");
   } catch (err) {
