@@ -21,20 +21,20 @@ const MapView = () => {
       center: [-114.07, 51.05],
       zoom: 12,
     });
-
-
+    
+    // creating fullscreen and geolocate controls
     map.addControl(new mapboxgl.FullscreenControl());
     map.addControl(
       new mapboxgl.GeolocateControl({
       positionOptions: {
       enableHighAccuracy: true
       },
-      // When active the map will receive updates to the device's location as it changes.
       trackUserLocation: true,
-      // Draw an arrow next to the location dot to indicate which direction the device is heading.
       showUserHeading: true
       })
     );
+
+
 
     map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
@@ -67,7 +67,8 @@ const MapView = () => {
           id="mapbox"
         ></div>
        <div className="info"> 
-         {feature && (<Info feature={feature}></Info>)} 
+         {(<Info feature={feature}></Info>)} 
+         
        </div> 
        </div>
     </div>
