@@ -9,21 +9,18 @@ const {
   allComments,
 } = require("../database/dbModel");
 
-//retrieve username from database after auth
-let userName = "";
-
 /* GET express home page for testing. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Express" });
 });
 
 //To add new comment
 router.post("/add", async (req, res, next) => {
   try {
-    let comment = req.body;
-    let addedComment = await addComment(userName, comment);
-    console.log(addComment);
-    res.send();
+    const comment = req.body;
+    const addedComment = await addComment(comment);
+    console.log("Added comment", addedComment);
+    res.send("Comment added");
   } catch (err) {
     debug(err.message);
   }
@@ -32,22 +29,21 @@ router.post("/add", async (req, res, next) => {
 //To edit a comment.
 router.post("/edit", async (req, res, next) => {
   try {
-    let comment = req.body;
-    let editedComment = await editComment(userName, comment);
-    console.log(editedComment);
-    res.send();
+    const comment = req.body;
+    const editedComment = await editComment(comment);
+    console.log("Updated comment: ",editedComment);
+    res.send("Comment updated");
   } catch (err) {
     debug(err.message);
   }
 });
 
-//To delete a comment. 
+//To delete a comment.
 router.post("/delete", async (req, res, next) => {
   try {
-    let comment = req.body;
+    const comment = req.body;
     await deleteComment(comment);
-    res.send();
-    console.log();
+    res.send("Comment deleted");
   } catch (err) {
     debug(err.message);
   }
