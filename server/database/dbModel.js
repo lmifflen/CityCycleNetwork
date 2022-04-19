@@ -4,16 +4,19 @@ const mongoose = require("./mongoose");
 const { Schema, model } = mongoose;
 
 const commentSchema = new Schema({
-  username:String,
+  username: String,
   comment: String,
-  route: {type:String, default:""},
+  route: { type: String, default: "" },
   createdAt: {
     type: String,
     default: new Date().toString().substring(4, 25),
   },
 });
 
+const userSchema = new Schema({});
+
 const Comment = model("Comment", commentSchema);
+const User = model("User", userSchema);
 
 const addComment = async (newComment) => {
   try {
@@ -51,8 +54,14 @@ const deleteComment = async (deletingComment) => {
 
 const allComments = async () => {
   let commentsArray = await Comment.find();
-  console.log(commentsArray);
+  // console.log(commentsArray);
   return commentsArray;
+};
+
+const allUsers = async () => {
+  let usersArray = await User.find();
+  // console.log(usersArray)
+  return usersArray;
 };
 
 module.exports = {
@@ -60,4 +69,5 @@ module.exports = {
   editComment,
   deleteComment,
   allComments,
+  allUsers,
 };

@@ -7,6 +7,7 @@ const {
   editComment,
   deleteComment,
   allComments,
+  allUsers,
 } = require("../database/dbModel");
 
 /* GET express home page for testing. */
@@ -31,7 +32,7 @@ router.post("/edit", async (req, res, next) => {
   try {
     const comment = req.body;
     const editedComment = await editComment(comment);
-    console.log("Updated comment: ",editedComment);
+    console.log("Updated comment: ", editedComment);
     res.send("Comment updated");
   } catch (err) {
     debug(err.message);
@@ -55,6 +56,15 @@ router.get("/allcomments", async (req, res, next) => {
     let commentsArray = await allComments();
     // console.log(commentsArray)
     res.send(commentsArray);
+  } catch (err) {
+    debug(err.message);
+  }
+});
+
+router.get("/allusers", async (req, res) => {
+  try {
+    let usersArray = await allUsers();
+    res.send(usersArray);
   } catch (err) {
     debug(err.message);
   }
