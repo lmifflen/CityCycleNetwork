@@ -6,10 +6,11 @@ const Info = (props) => {
   const { feature } = props;
 
   const matchingKey = Object.keys(info).find((key) => {
-    return feature.some((vector) => {
+    return feature?.some((vector) => {
       return vector.sourceLayer === key;
     });
   });
+  console.log(feature)
   if (!matchingKey) {
     return (
       <div>
