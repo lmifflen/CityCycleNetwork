@@ -8,6 +8,7 @@ const {
   deleteComment,
   allComments,
   allUsers,
+  findUsersbyemail,
 } = require("../database/dbModel");
 
 /* GET express home page for testing. */
@@ -65,6 +66,18 @@ router.get("/allusers", async (req, res) => {
   try {
     let usersArray = await allUsers();
     res.send(usersArray);
+  } catch (err) {
+    debug(err.message);
+  }
+});
+
+router.get("/findusersbyemail", async (req, res) => {
+  try {
+    let email = req.query.email;
+    console.log(email);
+    let usersemail = await findUsersbyemail(email);
+    res.send(usersemail);
+    console.log(usersemail);
   } catch (err) {
     debug(err.message);
   }

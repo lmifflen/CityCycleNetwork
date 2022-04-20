@@ -11,15 +11,15 @@ console.log(process.env.REACT_APP_MAPBOX_TOKEN);
 function App() {
   return (
     <div className="flex">
-    <Navbar />
-    <Main />
-    <MapView />
-    {/* <Info /> */}
-    <Comments />
-    {/* // commentsUrl="http://localhost:3004/comments"
+      <Navbar />
+      <Main />
+      <MapView />
+      {/* <Info /> */}
+      <Comments />
+      {/* // commentsUrl="http://localhost:3004/comments"
     //   currentUserId="1" */}
-             <Footer />
-  </div>
+      <Footer />
+    </div>
   );
 }
 

@@ -13,7 +13,10 @@ const commentSchema = new Schema({
   },
 });
 
-const userSchema = new Schema({});
+const userSchema = new Schema({
+  username: String,
+  email: String,
+});
 
 const Comment = model("Comment", commentSchema);
 const User = model("User", userSchema);
@@ -58,10 +61,16 @@ const allComments = async () => {
   return commentsArray;
 };
 
-const allUsers = async () => {
-  let usersArray = await User.find();
-  // console.log(usersArray)
+const allUsers = async (email) => {
+  let usersArray = await User.find(email);
+  console.log(usersArray)
   return usersArray;
+};
+
+const findUsersbyemail = async (email) => {
+  let useremail = await User.find({email});
+  console.log(useremail)
+  return useremail;
 };
 
 module.exports = {
@@ -70,4 +79,5 @@ module.exports = {
   deleteComment,
   allComments,
   allUsers,
+  findUsersbyemail,
 };

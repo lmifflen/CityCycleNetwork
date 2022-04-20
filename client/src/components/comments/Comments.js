@@ -1,28 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Comments = ({currentUserId}) => {
+const Comments = () => {
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
-  const [backendUsers, setBackendUsers] = useState([]);
+  const [backendUsers, setBackendUsers] = useState();
 
-  const getallusers = async () => {
+
+  const finduseremail = async () => {
     try {
-      let response =await fetch("/allusers");
+      if (user == null) setBackendUsers(null)
+      let email = user.email
+      let response = await fetch(`/findusersbyemail?email=${email}`);
       let allusers = await response.json();
-      return setBackendUsers(allusers)
-    }catch (ex) {
+          return setBackendUsers(allusers);
+    } catch (ex) {
       console.log(ex);
     }
-  }
+  };
 
-useEffect(() => {
-  getallusers();
-}, [])
+  useEffect(() => {
+    finduseremail();
+  }, [isAuthenticated]);
 
   return (
-  <div>Hello Comments</div>
-|<div>{isAuthenticated && (<div>{backendUsers.map(backuser => <p>Hello {backuser.email}</p>)}</div>)}</div>)
-}
-
-        export default Comments
+    <div className="comments">
+      <h3 className="comments-title">Comments</h3>
+      <div className="comment-form-title">Write comment</div>
+      <div>
+        {isAuthenticated && backendUsers != null &&
+          backendUsers.map((backuser) => <p>{backuser.email}</p>)}
+      </div>
+    </div>
+  );
+};
+export default Comments;
