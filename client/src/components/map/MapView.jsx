@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import "./Map.css";
 import Info from "../info/Info";
 import "mapbox-gl/dist/mapbox-gl.css";
-import Map from "react-map-gl";
+import Map, { GeolocateControl } from "react-map-gl";
 import ControlPanel from "./control-panel";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -31,7 +31,10 @@ const MapView = () => {
             mapStyle={mapStyle && mapStyle.toJS()}
             styleDiffing
             mapboxAccessToken={MAPBOX_TOKEN}
-          />
+          >
+            <GeolocateControl />
+          </Map>
+
           <ControlPanel onChange={setMapStyle} />
         </>
         <div className="info">{<Info feature={feature}></Info>}</div>
