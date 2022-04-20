@@ -2,7 +2,7 @@ import Navbar from "./components/navbar/Navbar";
 import Main from "./components/main/Main";
 import "./App.css";
 import Comments from "./components/comments/Comments";
-import MapView from "./components/map/Map";
+import MapView from "./components/map/MapView";
 import Footer from "./components/footer/Footer";
 // import Info from "./components/info/Info";
 
