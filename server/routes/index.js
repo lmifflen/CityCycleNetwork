@@ -7,6 +7,9 @@ const {
   editComment,
   deleteComment,
   allComments,
+  allUsers,
+  findUsersbyemail,
+  findCommentsByRoute,
 } = require("../database/dbModel");
 
 /* GET express home page for testing. */
@@ -16,9 +19,9 @@ router.get("/", function (req, res, next) {
 
 //To add new comment
 router.post("/add", async (req, res, next) => {
+  const comment = req.body;
   try {
-    const comment = req.body;
-    const addedComment = await addComment(comment);
+        const addedComment = await addComment(comment);
     console.log("Added comment", addedComment);
     res.send("Comment added");
   } catch (err) {
@@ -31,7 +34,7 @@ router.post("/edit", async (req, res, next) => {
   try {
     const comment = req.body;
     const editedComment = await editComment(comment);
-    console.log("Updated comment: ",editedComment);
+    console.log("Updated comment: ", editedComment);
     res.send("Comment updated");
   } catch (err) {
     debug(err.message);
@@ -52,12 +55,44 @@ router.post("/delete", async (req, res, next) => {
 //To retrieve all comments. The return is an array of objects
 router.get("/allcomments", async (req, res, next) => {
   try {
-    let commentsArray = await allComments();
+    const commentsArray = await allComments();
     // console.log(commentsArray)
     res.send(commentsArray);
   } catch (err) {
     debug(err.message);
   }
 });
+
+router.get("/allusers", async (req, res) => {
+  try {
+    let usersArray = await allUsers();
+    res.send(usersArray);
+  } catch (err) {
+    debug(err.message);
+  }
+});
+
+router.get("/findusersbyemail", async (req, res) => {
+  try {
+    let email = req.query.email;
+    console.log(email);
+    let usersemail = await findUsersbyemail(email);
+    res.send(usersemail);
+    console.log(usersemail);
+  } catch (err) {
+    debug(err.message);
+  }
+});
+
+router.post("/routecomments",async (req,res)=>{
+  try {
+    let route=req.body
+    let routeCommentsArray = await findCommentsByRoute(route)
+    res.send(routeCommentsArray)
+
+  } catch (err) {
+    debug(err.message)
+  }
+})
 
 module.exports = router;

@@ -2,8 +2,8 @@
   height: 500px;
   width: 70%;
   text-align: center;
-   z-index: -1;
-  margin-top:30px;
+  z-index: -1;
+  margin-top: 30px;
   margin-bottom: 20px;
   margin-left: 50px;
 }
@@ -21,8 +21,8 @@
   height: 100%;
   width: 100%;
   flex-direction: row;
-  justify-content:left;
-  align-items:center;
+  justify-content: left;
+  align-items: center;
 }
 .map-container {
   height: 100%;

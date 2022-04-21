@@ -4,19 +4,27 @@ const mongoose = require("./mongoose");
 const { Schema, model } = mongoose;
 
 const commentSchema = new Schema({
-  name: String,
+  username: String,
   comment: String,
+  route: { type: String, default: "" },
+  parentId: { type: String, default: null },
   createdAt: {
-    type: String,
+    type: Date,
     default: new Date().toString().substring(4, 25),
-  },
+    },
+});
+
+const userSchema = new Schema({
+  username: String,
+  email: String,
 });
 
 const Comment = model("Comment", commentSchema);
+const User = model("User", userSchema);
 
-const addComment = async (newComment) => {
+const addComment = async (newComment, parentId) => {
   try {
-    const addedComment = await Comment.create(newComment);
+    const addedComment = await Comment.create(newComment, parentId);
     console.log("Comment added successfully");
     return addedComment;
   } catch (err) {
@@ -27,7 +35,7 @@ const addComment = async (newComment) => {
 const editComment = async (updatedComment) => {
   try {
     const editedComment = await Comment.findOneAndUpdate(
-      { name: updatedComment.name },
+      { username: updatedComment.username },
       { comment: updatedComment.comment }
     );
     console.log("Comment edited successfully");
@@ -40,7 +48,7 @@ const editComment = async (updatedComment) => {
 const deleteComment = async (deletingComment) => {
   try {
     const deletedComment = await Comment.findOneAndDelete({
-      name: deletingComment.name,
+      username: deletingComment.username,
     });
     console.log("Comment deleted successfully");
   } catch (err) {
@@ -50,13 +58,41 @@ const deleteComment = async (deletingComment) => {
 
 const allComments = async () => {
   let commentsArray = await Comment.find();
-  console.log(commentsArray);
+  // console.log(commentsArray);
   return commentsArray;
 };
+
+const allUsers = async (email) => {
+  let usersArray = await User.find(email);
+  console.log(usersArray);
+  return usersArray;
+};
+
+const findUsersbyemail = async (email) => {
+  let useremail = await User.find({ email });
+  console.log(useremail);
+  return useremail;
+};
+
+const findCommentsByRoute = async (route) => {
+  let routeCommentsArray;
+  if (route === null || route === "") {
+    routeCommentsArray = await allComments();
+  } else {
+    routeCommentsArray = await Comment.find({ route: route });
+  }
+  // console.log(routeCommentsArray)
+  return routeCommentsArray;
+};
+
+let a =5
 
 module.exports = {
   addComment,
   editComment,
   deleteComment,
   allComments,
+  allUsers,
+  findUsersbyemail,
+  findCommentsByRoute,
 };
