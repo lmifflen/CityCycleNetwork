@@ -11,8 +11,7 @@ const commentSchema = new Schema({
   createdAt: {
     type: Date,
     default: new Date().toString().substring(4, 25),
-    // default: Date.now
-  },
+    },
 });
 
 const userSchema = new Schema({
