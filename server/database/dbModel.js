@@ -7,7 +7,7 @@ const commentSchema = new Schema({
   username: String,
   comment: String,
   route: { type: String, default: "" },
-  parentId: String,
+  parentId: { type: String, default: null },
   createdAt: {
     type: String,
     default: new Date().toString().substring(4, 25),
@@ -22,9 +22,9 @@ const userSchema = new Schema({
 const Comment = model("Comment", commentSchema);
 const User = model("User", userSchema);
 
-const addComment = async (newComment) => {
+const addComment = async (newComment, parentId) => {
   try {
-    const addedComment = await Comment.create(newComment);
+    const addedComment = await Comment.create(newComment, parentId);
     console.log("Comment added successfully");
     return addedComment;
   } catch (err) {
