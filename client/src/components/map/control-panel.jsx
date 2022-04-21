@@ -6,18 +6,19 @@ import MAP_STYLE from "./style.json";
 const defaultMapStyle = fromJS(MAP_STYLE);
 const defaultLayers = defaultMapStyle.get("layers");
 
+
 const categories = [
   "labels",
   "roads",
   "buildings",
   "parks",
   "water",
-  "background",
+  "ParkandRide",
 ];
 
 // Layer id patterns by category
 const layerSelector = {
-  background: /background/,
+  ParkandRide: /maxbell|pearceestates|edworthynorth|edworthysouth|homeroad|sandybeach|vistaheights/, 
   water: /water/,
   parks: /park/,
   buildings: /building/,
@@ -25,15 +26,9 @@ const layerSelector = {
   labels: /label|place|poi/,
 };
 
-// Layer color class by type
-const colorClass = {
-  line: "line-color",
-  fill: "fill-color",
-  background: "background-color",
-  symbol: "text-color",
-};
 
-function getMapStyle({ visibility, color }) {
+
+function getMapStyle({ visibility}) {
   const layers = defaultLayers
     .filter((layer) => {
       const id = layer.get("id");
@@ -41,15 +36,7 @@ function getMapStyle({ visibility, color }) {
         (name) => visibility[name] || !layerSelector[name].test(id)
       );
     })
-    .map((layer) => {
-      const id = layer.get("id");
-      const type = layer.get("type");
-      const category = categories.find((name) => layerSelector[name].test(id));
-      if (category && colorClass[type]) {
-        return layer.setIn(["paint", colorClass[type]], color[category]);
-      }
-      return layer;
-    });
+    console.log(layers)
 
   return defaultMapStyle.set("layers", layers);
 }
@@ -61,21 +48,21 @@ function StyleControls(props) {
     buildings: true,
     roads: true,
     labels: true,
-    background: true,
+    ParkandRide: true,
   });
 
-  const [color, setColor] = useState({
-    water: "#DBE2E6",
-    parks: "#E6EAE9",
-    buildings: "#c0c0c8",
-    roads: "#ffffff",
-    labels: "#78888a",
-    background: "#EBF0F0",
-  });
+  // const [color, setColor] = useState({
+  //   water: "#DBE2E6",
+  //   parks: "#E6EAE9",
+  //   buildings: "#c0c0c8",
+  //   roads: "#ffffff",
+  //   labels: "#78888a",
+  //   background: "#EBF0F0",
+  // });
 
   useEffect(() => {
-    props.onChange(getMapStyle({ visibility, color }));
-  }, [visibility, color]);
+    props.onChange(getMapStyle({ visibility}));
+  }, [visibility]);
 
   const onVisibilityChange = (name, value) => {
     setVisibility({ ...visibility, [name]: value });
