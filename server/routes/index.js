@@ -9,6 +9,7 @@ const {
   allComments,
   allUsers,
   findUsersbyemail,
+  findCommentsByRoute,
 } = require("../database/dbModel");
 
 /* GET express home page for testing. */
@@ -54,7 +55,7 @@ router.post("/delete", async (req, res, next) => {
 //To retrieve all comments. The return is an array of objects
 router.get("/allcomments", async (req, res, next) => {
   try {
-    let commentsArray = await allComments();
+    const commentsArray = await allComments();
     // console.log(commentsArray)
     res.send(commentsArray);
   } catch (err) {
@@ -82,5 +83,16 @@ router.get("/findusersbyemail", async (req, res) => {
     debug(err.message);
   }
 });
+
+router.post("/routecomments",async (req,res)=>{
+  try {
+    let route=req.body
+    let routeCommentsArray = await findCommentsByRoute(route)
+    res.send(routeCommentsArray)
+
+  } catch (err) {
+    debug(err.message)
+  }
+})
 
 module.exports = router;

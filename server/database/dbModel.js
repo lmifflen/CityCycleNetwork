@@ -64,16 +64,26 @@ const allComments = async () => {
 
 const allUsers = async (email) => {
   let usersArray = await User.find(email);
-  console.log(usersArray)
+  console.log(usersArray);
   return usersArray;
 };
 
 const findUsersbyemail = async (email) => {
-  let useremail = await User.find({email});
-  console.log(useremail)
+  let useremail = await User.find({ email });
+  console.log(useremail);
   return useremail;
 };
 
+const findCommentsByRoute = async (route) => {
+  let routeCommentsArray;
+  if (route === null || route === "") {
+    routeCommentsArray = await allComments();
+  } else {
+    routeCommentsArray = await Comment.find({ route: route });
+  }
+  // console.log(routeCommentsArray)
+  return routeCommentsArray;
+};
 
 module.exports = {
   addComment,
@@ -82,4 +92,5 @@ module.exports = {
   allComments,
   allUsers,
   findUsersbyemail,
+  findCommentsByRoute,
 };
