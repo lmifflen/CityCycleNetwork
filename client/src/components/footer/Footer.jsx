@@ -1,11 +1,20 @@
 import React from "react";
-import "./Footer.css";
+import "./Footer.scss";
 // import { AnimatedSocialIcon } from "react-animated-social-icons";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="bikeknights">© 2022 Bike Knights</div>
+           <div className="social">
+           <div className="social-follow">Follow Us</div>
+      <div class="social-container">
+    <ul class="social-icons">
+        <li><a href="https://www.facebook.com" target="_blank" rel="noreferrer noopener"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank" rel="noreferrer noopener"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="https://www.twitter.com" target="_blank" rel="noreferrer noopener"><i class="fa fa-twitter"></i></a></li>
+    </ul>
 {/*       
       <div className="social">Follow Us
         <AnimatedSocialIcon
@@ -39,6 +48,8 @@ const Footer = () => {
           style={{ padding: "1.5em" }}
         />
       </div> */}
+      </div>
+      </div>
     </div>
   );
 };
