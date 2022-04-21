@@ -3,18 +3,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Comment from "./Comment";
 import "./Comments.css";
 import CommentForm from "./CommentForm";
-// import { createComment as createCommentApi } from "./Api";
-// import { getComments as getCommentsApi } from "./Api";
 
-const Comments = (_id) => {
+const Comments = ({currentUserId}) => {
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
+
   const [backendUsers, setBackendUsers] = useState([]);
   const [backendComments, setBackendComments] = useState([]);
   const rootComments = backendComments.filter(
     (backendComment) => backendComment.parentId === null
   );
-  const getReplies = (commentId) => {
+
+  const getReplies = async (commentId) => {
     return backendComments
       .filter((backendComment) => backendComment.parentId === commentId)
       .sort(
@@ -35,30 +35,37 @@ const Comments = (_id) => {
   //   });
   // }, []);
 
-  const addComment = async (text, parentId) => {
-    console.log("addComment", text, parentId);
-    try {
-      let response = await fetch("/add");
-      let addcomment = await response.json(text, parentId).then((comment) => {
-        setBackendComments([comment, ...backendComments]);
-        // setActiveComment(null);
-        return setBackendComments(addcomment);
-      });
-    } catch (ex) {
-      console.log(ex);
+  const addComment = async (text, parentId = null) => {
+    const newComment = {
+      username: user.nickname,
+      comment: text,
+      parentId: parentId,
+    }
+    // .then((comment) => {setBackendComments([comment, ...backendComments]);})
+    
+      
+
+    const data = JSON.stringify(newComment);
+    console.log(`creating new comment: ${data}`);
+    const response = await fetch("/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    });
+    if (response.status === 200) {
+      console.log("success");
+    } else {
+      alert("error creating comment");
     }
   };
 
   useEffect(() => {
-    addComment();
-    //  eslint-disable-next-line react-hooks/exhaustive-deps
+    addComment().then((data) => {
+      setBackendComments(data);
+    });
   }, []);
-
-  // useEffect(() => {
-  //   allcomments().then((data) => {
-  //     setBackendComments(data)
-  //   })
-  // })
 
   const allcomments = async () => {
     try {
@@ -96,8 +103,7 @@ const Comments = (_id) => {
   return (
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
-      <div className="comment-form-title">Write comment</div>
-      <CommentForm submitLabel="Write" handleSubmit={addComment} />
+      <CommentForm submitLabel="Submit" handleSubmit={addComment} />
       <div className="comments-container">
         {/* {backendComments.map((backcomment) => (
           <p>
@@ -111,6 +117,7 @@ const Comments = (_id) => {
             key={rootComment._id}
             comment={rootComment}
             replies={getReplies(rootComment._id)}
+            currentUserId={currentUserId}
           />
         ))}
       </div>

@@ -18,9 +18,9 @@ router.get("/", function (req, res, next) {
 
 //To add new comment
 router.post("/add", async (req, res, next) => {
+  const comment = req.body;
   try {
-    const comment = req.body;
-    const addedComment = await addComment(comment);
+        const addedComment = await addComment(comment);
     console.log("Added comment", addedComment);
     res.send("Comment added");
   } catch (err) {

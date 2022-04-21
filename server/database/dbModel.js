@@ -9,8 +9,9 @@ const commentSchema = new Schema({
   route: { type: String, default: "" },
   parentId: { type: String, default: null },
   createdAt: {
-    type: String,
+    type: Date,
     default: new Date().toString().substring(4, 25),
+    // default: Date.now
   },
 });
 
