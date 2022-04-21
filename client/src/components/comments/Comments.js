@@ -4,7 +4,7 @@ import Comment from "./Comment";
 import "./Comments.css";
 import CommentForm from "./CommentForm";
 
-const Comments = ({currentUserId}) => {
+const Comments = ({ currentUserId }) => {
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
 
@@ -40,10 +40,11 @@ const Comments = ({currentUserId}) => {
       username: user.nickname,
       comment: text,
       parentId: parentId,
-    }
-    // .then((comment) => {setBackendComments([comment, ...backendComments]);})
-    
-      
+    };
+    // (text, parentId).
+    // then((comment) => {
+    //       setBackendComments([comment, ...backendComments]);
+    //         });
 
     const data = JSON.stringify(newComment);
     console.log(`creating new comment: ${data}`);
