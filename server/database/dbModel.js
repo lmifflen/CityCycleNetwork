@@ -7,6 +7,7 @@ const commentSchema = new Schema({
   username: String,
   comment: String,
   route: { type: String, default: "" },
+  parentId: String,
   createdAt: {
     type: String,
     default: new Date().toString().substring(4, 25),
@@ -72,6 +73,7 @@ const findUsersbyemail = async (email) => {
   console.log(useremail)
   return useremail;
 };
+
 
 module.exports = {
   addComment,
