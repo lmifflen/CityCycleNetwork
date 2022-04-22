@@ -10,7 +10,7 @@ const defaultLayers = defaultMapStyle.get("layers");
 // console.log(Object.keys(info));
 let pathways = Object.keys(info);
 console.log(pathways)
-const pathString = pathways.toString();
+const pathString = pathways.toString().toLowerCase();
 console.log(pathString);
 const pathReplacement = pathString.replaceAll(",", "|");
 console.log(pathReplacement);
@@ -36,7 +36,7 @@ const categories = [
 // Layer id patterns by category
 const layerSelector = {
   ParkandRide: /maxbell|pearceestates|edworthynorth|edworthysouth|homeroad|sandybeach|vistaheights/, 
-  water: /water/,
+  water: regEx,
   parks: /park/,
   buildings: /building/,
   roads: testRegEx,
