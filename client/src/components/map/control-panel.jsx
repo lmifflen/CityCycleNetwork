@@ -9,63 +9,44 @@ const defaultLayers = defaultMapStyle.get("layers");
 
 // console.log(Object.keys(info));
 let pathways = Object.keys(info);
-console.log(pathways)
+console.log(pathways);
 const pathString = pathways.toString().toLowerCase();
-console.log(pathString);
+// console.log(pathString);
 const pathReplacement = pathString.replaceAll(",", "|");
-console.log(pathReplacement);
-// stringify object
-// const stringify = (obj) => {
+// console.log(pathReplacement);
 
-let pathwayspipe = pathways;
-// console.log(pathwayspipe);
- let regEx = new RegExp(pathReplacement);
- console.log(regEx)
- let test = "bridge|road|tunnel";
- let testRegEx = new RegExp(test);
+let cycleWays = new RegExp(pathReplacement);
+console.log(cycleWays);
+// let test = "bridge|road|tunnel";
+// let testRegEx = new RegExp(test);
 
-const categories = [
-  "labels",
-  "roads",
-  "buildings",
-  "parks",
-  "water",
-  "ParkandRide",
-];
+const categories = ["Cycleways", "ParkandRide"];
 
 // Layer id patterns by category
 const layerSelector = {
-  ParkandRide: /maxbell|pearceestates|edworthynorth|edworthysouth|homeroad|sandybeach|vistaheights/, 
-  water: regEx,
-  parks: /park/,
-  buildings: /building/,
-  roads: testRegEx,
-  labels: /label|place|poi/,
+  ParkandRide:
+    /maxbell|pearceestates|edworthynorth|edworthysouth|homeroad|sandybeach|vistaheights/,
+  Cycleways: cycleWays,
+
   // ParkandRide: "maxbell",
 };
 
-
-
-function getMapStyle({ visibility}) {
-  const layers = defaultLayers
-    .filter((layer) => {
-      const id = layer.get("id");
-      return categories.every(
-        (name) => visibility[name] || !layerSelector[name].test(id)
-      );
-    })
-    // console.log(layers)
+function getMapStyle({ visibility }) {
+  const layers = defaultLayers.filter((layer) => {
+    const id = layer.get("id");
+    return categories.every(
+      (name) => visibility[name] || !layerSelector[name].test(id)
+    );
+  });
+  // console.log(layers)
 
   return defaultMapStyle.set("layers", layers);
 }
 
 function StyleControls(props) {
   const [visibility, setVisibility] = useState({
-    water: true,
-    parks: true,
-    buildings: true,
-    roads: true,
-    labels: true,
+    Cycleways: true,
+
     ParkandRide: true,
   });
 
@@ -79,7 +60,7 @@ function StyleControls(props) {
   // });
 
   useEffect(() => {
-    props.onChange(getMapStyle({ visibility}));
+    props.onChange(getMapStyle({ visibility }));
   }, [visibility]);
 
   const onVisibilityChange = (name, value) => {
