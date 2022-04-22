@@ -2,10 +2,27 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { fromJS } from "immutable";
 import MAP_STYLE from "./style.json";
+import info from "../info/pathwayInfo";
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 const defaultLayers = defaultMapStyle.get("layers");
 
+// console.log(Object.keys(info));
+let pathways = Object.keys(info);
+console.log(pathways)
+const pathString = pathways.toString();
+console.log(pathString);
+const pathReplacement = pathString.replaceAll(",", "|");
+console.log(pathReplacement);
+// stringify object
+// const stringify = (obj) => {
+
+let pathwayspipe = pathways;
+// console.log(pathwayspipe);
+ let regEx = new RegExp(pathReplacement);
+ console.log(regEx)
+ let test = "bridge|road|tunnel";
+ let testRegEx = new RegExp(test);
 
 const categories = [
   "labels",
@@ -22,8 +39,9 @@ const layerSelector = {
   water: /water/,
   parks: /park/,
   buildings: /building/,
-  roads: /bridge|road|tunnel/,
+  roads: testRegEx,
   labels: /label|place|poi/,
+  // ParkandRide: "maxbell",
 };
 
 
@@ -36,7 +54,7 @@ function getMapStyle({ visibility}) {
         (name) => visibility[name] || !layerSelector[name].test(id)
       );
     })
-    console.log(layers)
+    // console.log(layers)
 
   return defaultMapStyle.set("layers", layers);
 }
