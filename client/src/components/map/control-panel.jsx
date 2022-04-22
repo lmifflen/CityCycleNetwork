@@ -9,14 +9,14 @@ const defaultLayers = defaultMapStyle.get("layers");
 
 // console.log(Object.keys(info));
 let pathways = Object.keys(info);
-console.log(pathways);
+// console.log(pathways);
 const pathString = pathways.toString().toLowerCase();
 // console.log(pathString);
 const pathReplacement = pathString.replaceAll(",", "|");
 // console.log(pathReplacement);
 
 let cycleWays = new RegExp(pathReplacement);
-console.log(cycleWays);
+// console.log(cycleWays);
 // let test = "bridge|road|tunnel";
 // let testRegEx = new RegExp(test);
 
