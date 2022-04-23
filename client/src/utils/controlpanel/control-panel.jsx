@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { fromJS } from "immutable";
 import MAP_STYLE from "./style.json";
-import info from "../info/pathwayInfo";
+import info from "../../components/info/pathwayInfo";
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 const defaultLayers = defaultMapStyle.get("layers");

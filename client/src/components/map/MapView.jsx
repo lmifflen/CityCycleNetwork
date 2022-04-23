@@ -7,8 +7,8 @@ import Map, {
   GeolocateControl,
   ScaleControl,
 } from "react-map-gl";
-import ControlPanel from "./control-panel";
-import GetFeature from "./GetFeature";
+import ControlPanel from "../../utils/controlpanel/control-panel";
+import GetFeature from "../getfeature/GetFeature";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
