@@ -1,18 +1,18 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, Timestamp } = require("mongodb");
 const mongoose = require("./mongoose");
 
 const { Schema, model } = mongoose;
 
-const commentSchema = new Schema({
-  username: String,
-  comment: String,
-  route: { type: String, default: "" },
-  parentId: { type: String, default: null },
-  createdAt: {
-    type: Date,
-    default: new Date().toString().substring(4, 25),
-    },
-});
+const commentSchema = new Schema(
+  {
+    username: String,
+    comment: String,
+    route: { type: String, default: "" },
+    parentId: { type: String, default: null },
+    createdAt: String,
+  },
+  { timestamps: true }
+);
 
 const userSchema = new Schema({
   username: String,
@@ -22,9 +22,11 @@ const userSchema = new Schema({
 const Comment = model("Comment", commentSchema);
 const User = model("User", userSchema);
 
-const addComment = async (newComment, parentId) => {
+const addComment = async (newComment) => {
   try {
-    const addedComment = await Comment.create(newComment, parentId);
+    const createdAt = getTimeStamp();
+    newComment.createdAt = createdAt;
+    const addedComment = await Comment.create(newComment);
     console.log("Comment added successfully");
     return addedComment;
   } catch (err) {
@@ -64,13 +66,13 @@ const allComments = async () => {
 
 const allUsers = async (email) => {
   let usersArray = await User.find(email);
-  console.log(usersArray);
+  // console.log(usersArray);
   return usersArray;
 };
 
 const findUsersbyemail = async (email) => {
-  let useremail = await User.find({ email });
-  console.log(useremail);
+  let useremail = await User.find({ email: email });
+  // console.log(useremail);
   return useremail;
 };
 
@@ -85,7 +87,12 @@ const findCommentsByRoute = async (route) => {
   return routeCommentsArray;
 };
 
-let a =5
+const getTimeStamp = () => {
+  const date = new Date().toString();
+  const createdAt = `${date.substring(4, 10)}, ${date.substring(11,15)} ${date.substring(16, 21)}`;
+  // console.log(createdAt);
+  return createdAt;
+};
 
 module.exports = {
   addComment,
