@@ -1,6 +1,7 @@
 import React from 'react'
 import { useMap } from 'react-map-gl'
 import { useState } from 'react'
+import Info from '../info/Info'
 
 const GetFeature = () => {
     const [feature, setFeature] = useState(null);
@@ -17,7 +18,7 @@ const GetFeature = () => {
             });
 
 
-            return feature;
+            return <div className="info">{<Info feature={feature}> </Info>}</div>;
           }
 
 export default GetFeature
