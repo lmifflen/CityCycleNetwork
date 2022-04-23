@@ -1,22 +1,16 @@
 import info from "./pathwayInfo";
 import "./Info.css";
 import BowCyclepath from "../../images/BowCyclepath.jpg";
-import { useMap } from "react-map-gl";
-import { useState } from "react";
-
 
 const Info = (props) => {
-
-  
-          
-  const { feature }  = props;
+  const { feature } = props;
 
   const matchingKey = Object.keys(info).find((key) => {
     return feature?.some((vector) => {
       return vector.sourceLayer === key;
     });
   });
-  console.log(feature)
+  console.log(feature);
   if (!matchingKey) {
     return (
       <div>
