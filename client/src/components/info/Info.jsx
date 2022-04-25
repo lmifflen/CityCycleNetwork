@@ -10,7 +10,7 @@ const Info = (props) => {
       return vector.sourceLayer === key;
     });
   });
-  console.log(feature)
+  console.log(feature);
   if (!matchingKey) {
     return (
       <div>

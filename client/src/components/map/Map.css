@@ -1,9 +1,11 @@
 .map {
-  width: 100%;
+  height: 500px;
+  width: 70%;
   text-align: center;
   z-index: -1;
   margin-top: 30px;
   margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 .title {
@@ -17,13 +19,14 @@
 .mapandinfo {
   display: flex;
   height: 100%;
+  width: 100%;
   flex-direction: row;
   justify-content: left;
   align-items: center;
 }
 .map-container {
-  height: 500px;
-  width: 70%;
+  height: 100%;
+  width: 100%;
   margin-left: 5%;
   margin-right: 5%;
   /* position: relative; */
