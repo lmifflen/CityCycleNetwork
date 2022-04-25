@@ -8,6 +8,8 @@ const Comment = ({comment, replies, currentUserId}) => {
   const timePassed = new Date() - new Date (comment.create) > fiveMinutes;
   const canReply = Boolean(currentUserId)
   const canEdit = currentUserId === comment.userId && !timePassed;
+  const canDelete = currentUserId === comment.userId && !timePassed;
+  const createdAt = new Date(comment.createdAt).toLocaleDateString()
   return (
     <div className='comment'>
       <div className='comment-image-container'>
@@ -20,14 +22,14 @@ const Comment = ({comment, replies, currentUserId}) => {
         </div>
         <div className='comment-text'>{comment.comment}</div>
         <div className='comment-actions'>
-          <div className='comment-action'>Reply</div>
-          <div className='comment-action'>Edit</div>
-          <div className='comment-action'>Delete</div>
+          {canReply && <div className='comment-action'>Reply</div>}
+          {canEdit && <div className='comment-action'>Edit</div>}
+          {canDelete && <div className='comment-action'>Delete</div>}
         </div>
         {replies.length > 0 && (
           <div className='replies'>
             {replies.map(reply => (
-              <Comment comment={reply} key={reply.id} replies={[]} />
+              <Comment comment={reply} key={reply.id} replies={[]} currentUserId={currentUserId} />
             ))}
             </div>
         )}

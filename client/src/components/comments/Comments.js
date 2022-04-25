@@ -41,11 +41,7 @@ const Comments = ({ currentUserId }) => {
       comment: text,
       parentId: parentId,
     };
-    // (text, parentId).
-    // then((comment) => {
-    //       setBackendComments([comment, ...backendComments]);
-    //         });
-
+ 
     const data = JSON.stringify(newComment);
     console.log(`creating new comment: ${data}`);
     const response = await fetch("/add", {

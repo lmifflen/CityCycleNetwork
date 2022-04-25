@@ -22,9 +22,9 @@ const userSchema = new Schema({
 const Comment = model("Comment", commentSchema);
 const User = model("User", userSchema);
 
-const addComment = async (newComment, parentId) => {
+const addComment = async (newComment) => {
   try {
-    const addedComment = await Comment.create(newComment, parentId);
+    const addedComment = await Comment.create(newComment);
     console.log("Comment added successfully");
     return addedComment;
   } catch (err) {
