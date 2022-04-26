@@ -47,19 +47,27 @@ const editComment = async (updatedComment) => {
   }
 };
 
-const deleteComment = async (deletingComment) => {
+const deleteComment = async (id) => {
   try {
-    const deletedComment = await Comment.findOneAndDelete({
-      username: deletingComment.username,
-    });
+    const deletedComment = await Comment.findByIdAndRemove(id);
     console.log("Comment deleted successfully");
+    return deletedComment;
   } catch (err) {
     debug(err.message);
   }
 };
 
+const deleteCommentById = async (id) => {
+  try {
+   const deletedComment = await Comment.deleteOne({ _id: ObjectId(id) });
+  return deletedComment;
+} catch (err) {
+  debug(err.message);
+}
+};
+
 const allComments = async () => {
-  let commentsArray = await Comment.find();
+  let commentsArray = await Comment.find().sort({createdAt: -1})
   // console.log(commentsArray);
   return commentsArray;
 };
@@ -94,6 +102,8 @@ const getTimeStamp = () => {
   return createdAt;
 };
 
+
+
 module.exports = {
   addComment,
   editComment,
@@ -102,4 +112,5 @@ module.exports = {
   allUsers,
   findUsersbyemail,
   findCommentsByRoute,
+  deleteCommentById,
 };

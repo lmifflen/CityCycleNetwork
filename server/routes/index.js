@@ -10,6 +10,7 @@ const {
   allUsers,
   findUsersbyemail,
   findCommentsByRoute,
+  deleteCommentById,
 } = require("../database/dbModel");
 
 /* GET express home page for testing. */
@@ -21,7 +22,7 @@ router.get("/", function (req, res, next) {
 router.post("/add", async (req, res, next) => {
   const comment = req.body;
   try {
-        const addedComment = await addComment(comment);
+    const addedComment = await addComment(comment);
     console.log("Added comment", addedComment);
     res.send("Comment added");
   } catch (err) {
@@ -42,10 +43,12 @@ router.post("/edit", async (req, res, next) => {
 });
 
 //To delete a comment.
-router.post("/delete", async (req, res, next) => {
+router.delete("/delete/:id", async (req, res, next) => {
   try {
-    const comment = req.body;
-    await deleteComment(comment);
+    const id = req.params.id;
+    const commentId = req.params.id;
+    const deletedComment = await deleteComment(commentId);
+    console.log("comment deleted ", deletedComment);
     res.send("Comment deleted");
   } catch (err) {
     debug(err.message);
@@ -56,7 +59,6 @@ router.post("/delete", async (req, res, next) => {
 router.get("/allcomments", async (req, res, next) => {
   try {
     const commentsArray = await allComments();
-    // console.log(commentsArray)
     res.send(commentsArray);
   } catch (err) {
     debug(err.message);
@@ -84,15 +86,14 @@ router.get("/findusersbyemail", async (req, res) => {
   }
 });
 
-router.post("/routecomments",async (req,res)=>{
+router.post("/routecomments", async (req, res) => {
   try {
-    let route=req.body
-    let routeCommentsArray = await findCommentsByRoute(route)
-    res.send(routeCommentsArray)
-
+    let route = req.body;
+    let routeCommentsArray = await findCommentsByRoute(route);
+    res.send(routeCommentsArray);
   } catch (err) {
-    debug(err.message)
+    debug(err.message);
   }
-})
+});
 
 module.exports = router;
