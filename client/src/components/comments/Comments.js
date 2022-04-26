@@ -26,7 +26,6 @@ const Comments = ({ currentUserId }) => {
   console.log("backend", backendComments);
   console.log("rootcom", rootComments);
 
-  
   //GET REPLIES
   const getReplies = async (commentId) => {
     return backendComments
@@ -34,14 +33,16 @@ const Comments = ({ currentUserId }) => {
       .sort(
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-         
-                );       
+      );
   };
-  console.log("get replies", getReplies)    
+  console.log("get replies", getReplies);
 
   const getTimeStamp = () => {
     const date = new Date().toString();
-    const createdAt = `${date.substring(4, 10)}, ${date.substring(11,15)} ${date.substring(16, 21)}`;
+    const createdAt = `${date.substring(4, 10)}, ${date.substring(
+      11,
+      15
+    )} ${date.substring(16, 21)}`;
     // console.log(createdAt);
     return createdAt;
   };
@@ -51,7 +52,7 @@ const Comments = ({ currentUserId }) => {
       username: user.nickname,
       comment: text,
       parentId: parentId,
-      createdAt: getTimeStamp(), 
+      createdAt: getTimeStamp(),
     };
 
     const data = JSON.stringify(newComment);
@@ -116,12 +117,10 @@ const Comments = ({ currentUserId }) => {
       let response = await fetch("/allcomments");
       let allcomments = await response.json();
       return setBackendComments(allcomments);
-     
     } catch (ex) {
       console.log(ex);
     }
   };
-
 
   // useEffect(() => {
   //   getCommentsApi().then((data) => {
@@ -153,7 +152,6 @@ const Comments = ({ currentUserId }) => {
   return (
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
-      <div className="comment-form-title">Write comment</div>
       <CommentForm submitLabel="Submit" handleSubmit={addComment} />
       <div className="comments-container">
         {rootComments.map((rootComment) => (
