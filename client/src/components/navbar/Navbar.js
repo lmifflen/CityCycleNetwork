@@ -28,7 +28,7 @@ export default function Navbar() {
           </li>
           <li>
             <p>
-              <a className="menu" href="#mapbox">Map</a>
+              <a className="menu" href="/#mapbox">Map</a>
             </p>
           </li>
           <li>
