@@ -33,7 +33,7 @@ export default function Navbar() {
           </li>
           <li>
             <p>
-              <a className="menu" href="/">About</a>
+              <a className="menu" href="/about">About</a>
             </p>
           </li>
           <li>
