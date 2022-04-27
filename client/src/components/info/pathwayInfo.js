@@ -126,7 +126,7 @@ const info = {
     },
     WesternHeadworksCanalPathway: {
       name: "Western Headworks Canal Pathway",
-      description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running alongside the Western Headworks main canal from the Max Bell Centre all the way to Chestermere. This pathway will take you through the industrial heartland of the city.",
+      description: "The Western Headworks Canal Pathway is a part of Calgary's regional pathway system - running alongside the Western Headworks main canal from the Max Bell Centre all the way to Chestermere - a distance of 25km. This pathway will take you through the industrial heartland of the city.",
       image: <img className="img" src={WesternHeadworks} alt="" />
     },
     WesternHeadworksCanalPathwayN: {
