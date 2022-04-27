@@ -3,10 +3,11 @@ import './About.css'
 
 const About = () => {
   return (
-    <div className="about">
-      <div className="">
-        <h1> About</h1>
-        <p1>
+    <div>
+      <div className="about">
+        <h1 className="h1"> About</h1>
+        <br/>
+        <p1 className="p">
           Summers in Calgary are lovely, and cycling is one of the best ways to
           take advantage of the city's outstanding natural visual splendour.
           It's also one of the most convenient methods to get around town.
@@ -17,7 +18,7 @@ const About = () => {
         <br />
         <br />
 
-        <p2>
+        <p2 className="p">
           City Cycle Network is aimed at providing a clear, visually beautiful,
           and intuitive map of cycle paths in Calgary. Calgarians and tourists
           may easily envision and plan their leisure bike journeys using the
@@ -25,6 +26,9 @@ const About = () => {
           facilitates connections with local businesses located along bike
           paths, which may be beneficial while out for a leisurely ride.
         </p2>
+      </div>
+      <div className="img">
+        IMAGE SLIDER WILL GO HERE
       </div>
     </div>
   );
