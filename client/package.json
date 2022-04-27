@@ -9,15 +9,12 @@
     "immutable": "^4.0.0",
     "mapbox-gl": "^2.8.0",
     "react": "^18.0.0",
-    "react-animated-social-icons": "^1.1.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
-    "react-json-pretty": "^2.2.0",
     "react-map-gl": "^7.0.10",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
-    "sass": "^1.50.1"
+    "react-scripts": "5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,9 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@emotion/core": "^10.3.1",
-    "@emotion/styled": "^10.3.0"
   }
 }
