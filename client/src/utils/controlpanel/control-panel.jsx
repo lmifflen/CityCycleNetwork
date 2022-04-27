@@ -20,13 +20,14 @@ let cycleWays = new RegExp(pathReplacement);
 // let test = "bridge|road|tunnel";
 // let testRegEx = new RegExp(test);
 
-const categories = ["Cycleways", "ParkandRide"];
+const categories = ["Cycleways", "ParkandRide", "BikeRoutes"];
 
 // Layer id patterns by category
 const layerSelector = {
   ParkandRide:
     /maxbell|pearceestates|edworthynorth|edworthysouth|homeroad|sandybeach|vistaheights/,
   Cycleways: cycleWays,
+  BikeRoutes: /fishcreekroute|shouldicebownessloop/,
 
   // ParkandRide: "maxbell",
 };
@@ -48,6 +49,8 @@ function StyleControls(props) {
     Cycleways: true,
 
     ParkandRide: true,
+
+    BikeRoutes: false,
   });
 
   // const [color, setColor] = useState({

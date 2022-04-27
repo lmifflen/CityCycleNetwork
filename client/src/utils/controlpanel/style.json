@@ -55,6 +55,10 @@
                 "name": "Road network, surface",
                 "collapsed": true
             },
+            "2106b2f522aeadc851154cb1c6d3e299": {
+                "name": "BikeRoutes",
+                "collapsed": false
+            },
             "c519db4fc0fc33cadb4f153028782842": {
                 "name": "City Pathways",
                 "collapsed": true
@@ -112,7 +116,7 @@
             },
             "c32b90dbb6d80f38c80765f034e0894f": {
                 "name": "Park And Bike",
-                "collapsed": false
+                "collapsed": true
             },
             "Transit, ferry-aerialway-labels": {
                 "name": "Transit, ferry-aerialway-labels",
@@ -194,7 +198,9 @@
                         "maxbell",
                         "pearceestates",
                         "sandybeach",
-                        "vistaheights"
+                        "vistaheights",
+                        "fishcreekroute",
+                        "shouldicebownessloop"
                     ]
                 }
             ],
@@ -324,13 +330,13 @@
             }
         }
     },
-    "center": [-114.00448241317336, 51.04194584681801],
-    "zoom": 15.952515430638487,
+    "center": [-114.086931578639, 51.04211804375959],
+    "zoom": 11.51487060973502,
     "bearing": 0,
     "pitch": 0,
     "sources": {
         "composite": {
-            "url": "mapbox://miffll.park-pathways,miffll.ParkAndBike,mapbox.mapbox-streets-v8,miffll.missing-links,miffll.StreetCyclePaths,mapbox.mapbox-terrain-v2",
+            "url": "mapbox://miffll.park-pathways,miffll.ParkAndBike,mapbox.mapbox-streets-v8,miffll.missing-links,miffll.BikeRoutes,miffll.StreetCyclePaths,mapbox.mapbox-terrain-v2",
             "type": "vector"
         }
     },
@@ -5081,10 +5087,28 @@
             "source-layer": "VistaHeights",
             "layout": {"icon-image": "parking"},
             "paint": {}
+        },
+        {
+            "id": "fishcreekroute",
+            "type": "line",
+            "metadata": {"mapbox:group": "2106b2f522aeadc851154cb1c6d3e299"},
+            "source": "composite",
+            "source-layer": "FishCreekRoute",
+            "layout": {},
+            "paint": {"line-color": "hsl(62, 96%, 49%)", "line-width": 3}
+        },
+        {
+            "id": "shouldicebownessloop",
+            "type": "line",
+            "metadata": {"mapbox:group": "2106b2f522aeadc851154cb1c6d3e299"},
+            "source": "composite",
+            "source-layer": "ShouldiceBownessLoop",
+            "layout": {},
+            "paint": {"line-width": 3, "line-color": "hsl(59, 92%, 48%)"}
         }
     ],
     "created": "2022-04-01T03:09:49.502Z",
-    "modified": "2022-04-20T17:01:12.004Z",
+    "modified": "2022-04-27T18:33:53.451Z",
     "id": "cl1ful06h003y14nwehytpg6w",
     "owner": "miffll",
     "visibility": "private",
