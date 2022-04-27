@@ -6,6 +6,7 @@
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid #eee;
   position: fixed;
+  z-index: 100;
 }
 
 .navbar .container {
