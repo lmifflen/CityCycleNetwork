@@ -15,9 +15,9 @@ function App() {
   return (
     <div className="flex">
       <header>
-        <h1>
+      
           <Navbar />
-        </h1>
+      
       </header>
       <BrowserRouter>
       <Routes>
@@ -26,9 +26,6 @@ function App() {
       </Routes>
       </BrowserRouter>
       {/* <Info /> */}
-
-      {/* // commentsUrl="http://localhost:3004/comments"
-    //   currentUserId="1" */}
       <Footer />
     </div>
   );

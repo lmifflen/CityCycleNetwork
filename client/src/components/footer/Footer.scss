@@ -4,7 +4,6 @@
   height: 80px;
   background-color: #303030;
   clear: both;
-  /* line-height: 50px; */
   color: #dcd5d5;
   justify-content: space-between;
   font-size: 20px;
@@ -14,17 +13,13 @@
   margin: 0 auto;
 }
 .bikeknights {
-  // vertical-align: bottom;
-  height: 50px;
+   height: 50px;
   float: left;
   margin-left: 5px;
   margin-top: 30px;
-  /* display: table-cell; */
   align-items: center;
 }
-/* .follow {
-  vertical-align: bottom;
-} */
+
 
 .social-follow {
   font-size: 25px;
@@ -34,14 +29,7 @@
 .social {
   display: flex;
   align-items: center;
-  /* float: right; */
-  margin-right: 30px;
-  /* display:block; */
-  /* vertical-align:middle; */
-  /* justify-content:center; */
-  /* align-items:center; */
-  /* margin-top: 10px; */
-  /* flex-direction:row; */
+   margin-right: 30px;
 }
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
