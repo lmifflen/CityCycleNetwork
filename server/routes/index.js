@@ -8,9 +8,10 @@ const {
   deleteComment,
   allComments,
   allUsers,
-  findUsersbyemail,
+  // findUsersbyemail,
   findCommentsByRoute,
   deleteCommentById,
+  // findUsersbyid,
 } = require("../database/dbModel");
 
 /* GET express home page for testing. */
@@ -31,7 +32,18 @@ router.post("/add", async (req, res, next) => {
 });
 
 //To edit a comment.
-router.post("/edit", async (req, res, next) => {
+// router.post("/edit", async (req, res, next) => {
+//   try {
+//     const comment = req.body;
+//     const editedComment = await editComment(comment);
+//     console.log("Updated comment: ", editedComment);
+//     res.send("Comment updated");
+//   } catch (err) {
+//     debug(err.message);
+//   }
+// });
+
+router.post("/edit/:id", async (req, res, next) => {
   try {
     const comment = req.body;
     const editedComment = await editComment(comment);
@@ -45,10 +57,20 @@ router.post("/edit", async (req, res, next) => {
 //To delete a comment.
 router.delete("/delete/:id", async (req, res, next) => {
   try {
-    const id = req.params.id;
+    // const id = req.params.id;
     const commentId = req.params.id;
     const deletedComment = await deleteComment(commentId);
     console.log("comment deleted ", deletedComment);
+    res.send("Comment deleted");
+  } catch (err) {
+    debug(err.message);
+  }
+});
+
+router.post("/delete", async (req, res, next) => {
+  try {
+    const comment = req.body;
+    await deleteComment(comment);
     res.send("Comment deleted");
   } catch (err) {
     debug(err.message);
@@ -74,17 +96,29 @@ router.get("/allusers", async (req, res) => {
   }
 });
 
-router.get("/findusersbyemail", async (req, res) => {
-  try {
-    let email = req.query.email;
-    console.log(email);
-    let usersemail = await findUsersbyemail(email);
-    res.send(usersemail);
-    console.log(usersemail);
-  } catch (err) {
-    debug(err.message);
-  }
-});
+// router.get("/findusersbyemail", async (req, res) => {
+//   try {
+//     let email = req.query.email;
+//     console.log(email);
+//     let usersemail = await findUsersbyemail(email);
+//     res.send(usersemail);
+//     console.log(usersemail);
+//   } catch (err) {
+//     debug(err.message);
+//   }
+// });
+
+// router.get("/findusersbyid", async (req, res) => {
+//   try {
+//     let id = req.query._id;
+//     console.log(id);
+//     let usersid = await findUsersbyid(id);
+//     res.send(usersid);
+//     console.log(usersid);
+//   } catch (err) {
+//     debug(err.message);
+//   }
+// });
 
 router.post("/routecomments", async (req, res) => {
   try {

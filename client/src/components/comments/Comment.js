@@ -1,63 +1,56 @@
+import React from "react";
+import img from "../../images/user.png";
 import CommentForm from "./CommentForm";
-import React from 'react'
-import "./Comments.css"
-import img from "../../images/user.png"
+import "./Comments.css";
 
 const Comment = ({
   comment,
   replies,
-  setActiveComment,
-  activeComment,
+  currentUser: currentUserid,
   updateComment,
   deleteComment,
   addComment,
+  activeComment,
+  setActiveComment,
   parentId = null,
-  currentUserId,
 }) => {
-  const isEditing =
-    activeComment &&
-    activeComment._id === comment._id &&
-    activeComment.type === "editing";
-  const isReplying =
-    activeComment &&
-    activeComment._id === comment._id &&
-    activeComment.type === "replying";
   const fiveMinutes = 300000;
   const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
-  const canDelete =
-    currentUserId === comment.userId && replies.length === 0 && !timePassed;
-  const canReply = Boolean(currentUserId);
-  const canEdit = currentUserId === comment.userId && !timePassed;
+  const canReply = Boolean(currentUserid);
+  const canEdit = currentUserid === comment.user_id && !timePassed;
+  const canDelete = currentUserid === comment.user_id && !timePassed;
+  // console.log("comment from ", comment.user_id);
+  // console.log("can delete is ", canDelete);
+  const isReplying =
+    activeComment &&
+    activeComment.type === "replying" &&
+    activeComment.id === comment._id;
+  const isEditing =
+    activeComment &&
+    activeComment.type === "editing" &&
+    activeComment.id === comment._id;
   const replyId = parentId ? parentId : comment._id;
-  // const createdAt = new Date(comment.createdAt).toLocaleDateString();
+  console.log("replies", replies);
   return (
-    <div key={comment._id} className="comment">
+    <div className="comment">
       <div className="comment-image-container">
-      <img src={img} alt=""/>
+        <img src={img} alt="" />
       </div>
       <div className="comment-right-part">
         <div className="comment-content">
-          <div className="comment-author">{comment.username}</div>
+          <div className="commment-author">{comment.username}</div>
           <div>{comment.createdAt}</div>
         </div>
         {!isEditing && <div className="comment-text">{comment.comment}</div>}
         {isEditing && (
-          <CommentForm
-            submitLabel="Update"
-            hasCancelButton
-            initialText={comment.comment}
-            handleSubmit={(text) => updateComment(text, comment._id)}
-            handleCancel={() => {
-              setActiveComment(null);
-            }}
-          />
+          <CommentForm submitLabel="Update" hasCancelButton initialText={comment.comment} handleSubmit={(text) => updateComment(text, comment._id)} handleCancel={() => setActiveComment(null)} />
         )}
         <div className="comment-actions">
           {canReply && (
             <div
               className="comment-action"
               onClick={() =>
-                setActiveComment({ _id: comment._id, type: "replying" })
+                setActiveComment({ id: comment._id, type: "replying" })
               }
             >
               Reply
@@ -67,7 +60,7 @@ const Comment = ({
             <div
               className="comment-action"
               onClick={() =>
-                setActiveComment({ _id: comment._id, type: "editing" })
+                setActiveComment({ id: comment._id, type: "editing" })
               }
             >
               Edit
@@ -96,12 +89,12 @@ const Comment = ({
                 key={reply._id}
                 setActiveComment={setActiveComment}
                 activeComment={activeComment}
-                updateComment={updateComment}
                 deleteComment={deleteComment}
+                updateComment={updateComment}
                 addComment={addComment}
                 parentId={comment._id}
                 replies={[]}
-                currentUserId={currentUserId}
+                currentUserid={currentUserid}
               />
             ))}
           </div>

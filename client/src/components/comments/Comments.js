@@ -1,33 +1,32 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import "./Comments.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Comments = ({ currentUserId }) => {
-  const { isAuthenticated } = useAuth0();
-  const { user } = useAuth0();
-
-  const [backendUsers, setBackendUsers] = useState([]);
+const Comments = () => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
   const rootComments = backendComments.filter(
     (backendComment) => backendComment.parentId === null
   );
 
-  // ADD COMMENT
-  // const addComment = (text, parentId) => {
-  //   createCommentApi(text, parentId).then((comment) => {
-  //     setBackendComments([comment, ...backendComments]);
-  //     setActiveComment(null);
-  //   });
-  // };
+  const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+  const [userid, setUserid] = useState();
 
-  console.log("backend", backendComments);
-  console.log("rootcom", rootComments);
+  // console.log("CURRENT USER", user.sub);
 
-  //GET REPLIES
-  const getReplies = async (commentId) => {
+  useEffect(() => {
+    if (user) {
+      let currentUserid = user.sub;
+      setUserid(currentUserid);
+    }
+  }, [user]);
+
+  // GET REPLIES
+  const getReplies = (commentId) => {
     return backendComments
       .filter((backendComment) => backendComment.parentId === commentId)
       .sort(
@@ -35,8 +34,8 @@ const Comments = ({ currentUserId }) => {
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
   };
-  console.log("get replies", getReplies);
 
+  //GET DATE AND TIME
   const getTimeStamp = () => {
     const date = new Date().toString();
     const createdAt = `${date.substring(4, 10)}, ${date.substring(
@@ -47,12 +46,14 @@ const Comments = ({ currentUserId }) => {
     return createdAt;
   };
 
+  //ADD COMMENT
   const addComment = async (text, parentId = null) => {
     const newComment = {
       username: user.nickname,
       comment: text,
       parentId: parentId,
       createdAt: getTimeStamp(),
+      user_id: user.sub,
     };
 
     const data = JSON.stringify(newComment);
@@ -74,42 +75,53 @@ const Comments = ({ currentUserId }) => {
   };
 
   //DELETE COMMENT
-  // const deleteComment = (commentId) => {
-  //   if (window.confirm("Are you sure you want to remove comment?")) {
-  //     deleteCommentApi().then(() => {
-  //       const updatedBackendComments = backendComments.filter(
-  //         (backendComment) => backendComment.id !== commentId
-  //       );
-  //       setBackendComments(updatedBackendComments);
-  //     });
-  //   }
-  // };
-
-  const deleteComment = async (commentId) => {
-    if (window.confirm("Are you sure you want delete comment?")) {
-      let id = backendComments._id;
-      let response = await fetch(`/delete/${id}`);
-      let updatedBackendComments = await response.json(commentId);
+  const deleteComment = async (comment) => {
+    if (window.confirm("Are you sure you want delete a comment?")) {
+      console.log("delete is ", comment);
+      const id = comment._id;
+      const response = await fetch(`/delete/${id}`, {
+        method: "DELETE",
+      });
       // const updatedBackendComments = backendComments.filter(
-      //   (backendComment) => backendComment._id !== commentId
+      //   (backendComment) => backendComment._id !== comment._id
       // );
-      setBackendComments(updatedBackendComments);
+      // setBackendComments(updatedBackendComments);
+      if (response.status === 200) {
+        console.log("success");
+      } else {
+        alert("error deleting comment");
+      }
+      allcomments();
+   
     }
   };
 
   //UPDATE COMMENT
-  // const updateComment = (text, commentId) => {
-  //   updateCommentApi(text).then(() => {
-  //     const updatedBackendComments = backendComments.map((backendComment) => {
-  //       if (backendComment.id === commentId) {
-  //         return { ...backendComment, body: text };
-  //       }
-  //       return backendComment;
-  //     });
-  //     setBackendComments(updatedBackendComments);
-  //     setActiveComment(null);
-  //   });
-  // };
+  const updateComment = async (text, comment) => {
+    const data = JSON.stringify();
+    console.log(`editing comment: ${data}`);
+    const id = comment._id;
+    const response = await fetch(`/edit/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    });
+    const updatedBackendComments = backendComments.map((backendComment) => {
+      if (backendComment.id === comment._id) {
+        return { ...backendComment, body: text };
+      }
+      return backendComment;
+    });
+    setBackendComments(updatedBackendComments);
+    setActiveComment(null);
+    if (response.status === 200) {
+      console.log("success");
+    } else {
+      alert("error creating comment");
+    }
+  };
 
   //GET ALL COMMENTS
   const allcomments = async () => {
@@ -122,32 +134,9 @@ const Comments = ({ currentUserId }) => {
     }
   };
 
-  // useEffect(() => {
-  //   getCommentsApi().then((data) => {
-  //     setBackendComments(data);
-  //   });
-  // }, []);
-
   useEffect(() => {
     allcomments();
   }, []);
-
-  const finduseremail = async () => {
-    try {
-      if (!user) return setBackendUsers(null);
-      let email = user.email;
-      let response = await fetch(`/findusersbyemail?email=${email}`);
-      let allusers = await response.json();
-      return setBackendUsers(allusers);
-    } catch (ex) {
-      console.log(ex);
-    }
-  };
-
-  useEffect(() => {
-    finduseremail();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
 
   return (
     <div className="comments">
@@ -162,9 +151,9 @@ const Comments = ({ currentUserId }) => {
             activeComment={activeComment}
             setActiveComment={setActiveComment}
             addComment={addComment}
-            deleteComment={deleteComment}
-            // updateComment={updateComment}
-            currentUserId={currentUserId}
+            deleteComment={(comment) => deleteComment(comment)}
+            updateComment={updateComment}
+            currentUser={userid}
           />
         ))}
       </div>
