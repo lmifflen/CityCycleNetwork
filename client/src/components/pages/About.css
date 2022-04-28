@@ -1,27 +1,30 @@
 .about{
     margin-left: 3%;
     margin-right: 3%;
-    padding: 1%
+    justify-content: center
 }
 
 .h1{
     margin-top: 60px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 2.6rem;
+    font-size: 2rem;
     font-weight: bold;
+    text-align: center;
     
 }
 
 .p{
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: justify;
+    ;
 }
 
 .img{
-    color: red;
-    font-weight: bold;
-    text-align: center;
+
     padding: 1.5%;
+    height: 100%;
+    width: 100%;
+
 }
