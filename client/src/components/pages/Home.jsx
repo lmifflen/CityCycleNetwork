@@ -11,10 +11,10 @@ const Home = () => {
     <>
       <Main />
       <MapView />
-      <h9 className="container">
+      <div className="container">
       <Comments />
       <Weather />
-      </h9>
+      </div>
     </>
   );
 };

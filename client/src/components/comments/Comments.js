@@ -12,7 +12,6 @@ const Comments = () => {
     (backendComment) => backendComment.parentId === null
   );
 
-  const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
   const [userid, setUserid] = useState();
 

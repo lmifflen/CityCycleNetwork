@@ -18,21 +18,21 @@ const Comment = ({
   const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canReply = Boolean(currentUserid);
   const canEdit = currentUserid === comment.user_id && !timePassed;
-  const canDelete = currentUserid === comment.user_id && !timePassed;
+  const canDelete = currentUserid === comment.user_id && replies.length === 0 && !timePassed;
   // console.log("comment from ", comment.user_id);
   // console.log("can delete is ", canDelete);
   const isReplying =
     activeComment &&
-    activeComment.type === "replying" &&
-    activeComment.id === comment._id;
+    activeComment.id === comment._id &&
+    activeComment.type === "replying";
   const isEditing =
     activeComment &&
-    activeComment.type === "editing" &&
-    activeComment.id === comment._id;
+    activeComment.id === comment._id &&
+    activeComment.type === "editing";
   const replyId = parentId ? parentId : comment._id;
   console.log("replies", replies);
   return (
-    <div className="comment">
+    <div key={comment._id} className="comment">
       <div className="comment-image-container">
         <img src={img} alt="" />
       </div>
@@ -43,7 +43,7 @@ const Comment = ({
         </div>
         {!isEditing && <div className="comment-text">{comment.comment}</div>}
         {isEditing && (
-          <CommentForm submitLabel="Update" hasCancelButton initialText={comment.comment} handleSubmit={(text) => updateComment(text, comment._id)} handleCancel={() => setActiveComment(null)} />
+          <CommentForm submitLabel="Update" hasCancelButton initialText={comment.comment} handleSubmit={(text) => updateComment(text, comment._id)} handleCancel={() => {setActiveComment(null)}} />
         )}
         <div className="comment-actions">
           {canReply && (

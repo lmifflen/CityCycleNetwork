@@ -4,7 +4,9 @@ import './Weather.css'
 
 const Weather = () => {
   return (
+    <div className="container2">
     <img className="weatherimage" src={weatherimg} alt="" />
+    </div>
   )
 }
 
