@@ -62,13 +62,15 @@ const Comments = () => {
       },
       body: data,
     });
-    setBackendComments([newComment, ...backendComments]);
+    console.log("new com", newComment);
+    // setBackendComments([newComment, ...backendComments]);
     setActiveComment(null);
     if (response.status === 200) {
       console.log("success-comment added");
     } else {
       alert("error creating comment");
     }
+    allcomments();
   };
 
   //DELETE COMMENT
@@ -76,47 +78,40 @@ const Comments = () => {
     if (window.confirm("Are you sure you want delete a comment?")) {
       console.log("delete is ", comment);
       const id = comment;
-      
+
       const response = await fetch(`/delete/${id}`, {
         method: "DELETE",
       });
-          
-          if (response.status === 200) {
+
+      if (response.status === 200) {
         console.log("success-comment deleted");
       } else {
         alert("error deleting comment");
       }
       allcomments();
-       }
+    }
   };
 
-  //UPDATE COMMENT
+  //EDIT COMMENT
   const updateComment = async (text, comment) => {
-  
-    
+    console.log("bla", text);
     const id = comment;
-    const data = JSON.stringify();
-    console.log(`editing comment: ${data}`);
+    console.log("COMMENT IS", comment);
     const response = await fetch(`/edit/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: data,
+      body: JSON.stringify({comment: text}),
     });
-    // const updatedBackendComments = backendComments.map((backendComment) => {
-    //   if (backendComment.id === comment._id) {
-    //     return { ...backendComment, body: text };
-    //   }
-    //   return backendComment;
-    // });
-    setBackendComments(data);
+
     setActiveComment(null);
     if (response.status === 200) {
       console.log("success-comment edited");
     } else {
-      alert("error creating comment");
+      alert("error editing comment");
     }
+    allcomments();
   };
 
   //GET ALL COMMENTS
@@ -148,8 +143,8 @@ const Comments = () => {
             setActiveComment={setActiveComment}
             addComment={addComment}
             deleteComment={(comment) => deleteComment(comment)}
-                 updateComment={updateComment}
-            currentUser={userid}
+            updateComment={updateComment}
+            currentUserid={userid}
           />
         ))}
       </div>

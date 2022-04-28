@@ -43,10 +43,14 @@ router.post("/add", async (req, res, next) => {
 //   }
 // });
 
-router.post("/edit/:id", async (req, res, next) => {
+router.put("/edit/:id", async (req, res, next) => {
+  console.log("last")
   try {
+    const id = req.params.id;
+    console.log("id is", id)
     const comment = req.body;
-    const editedComment = await editComment(comment);
+    console.log("comment is:", comment)
+    const editedComment = await editComment(comment, id);
     console.log("Updated comment: ", editedComment);
     res.send("Comment updated");
   } catch (err) {

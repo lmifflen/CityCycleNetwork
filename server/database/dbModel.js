@@ -36,10 +36,10 @@ const addComment = async (newComment) => {
   }
 };
 
-const editComment = async (updatedComment) => {
+const editComment = async (updatedComment, id) => {
   try {
     const editedComment = await Comment.findOneAndUpdate(
-      { username: updatedComment.username },
+      { _id: id },
       { comment: updatedComment.comment }
     );
     console.log("Comment edited successfully");
