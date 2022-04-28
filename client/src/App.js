@@ -4,7 +4,7 @@ import "./App.css";
 import Comments from "./components/comments/Comments";
 import MapView from "./components/map/MapView";
 import Footer from "./components/footer/Footer";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 // import Info from "./components/info/Info";
@@ -19,11 +19,12 @@ function App() {
           <Navbar />
         </h1>
       </header>
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About />} />
       </Routes>
-
+      </BrowserRouter>
       {/* <Info /> */}
 
       {/* // commentsUrl="http://localhost:3004/comments"
