@@ -15,8 +15,6 @@ const Comments = () => {
   const { user } = useAuth0();
   const [userid, setUserid] = useState();
 
-  // console.log("CURRENT USER", user.sub);
-
   useEffect(() => {
     if (user) {
       let currentUserid = user.sub;
@@ -67,7 +65,7 @@ const Comments = () => {
     setBackendComments([newComment, ...backendComments]);
     setActiveComment(null);
     if (response.status === 200) {
-      console.log("success");
+      console.log("success-comment added");
     } else {
       alert("error creating comment");
     }
@@ -77,29 +75,28 @@ const Comments = () => {
   const deleteComment = async (comment) => {
     if (window.confirm("Are you sure you want delete a comment?")) {
       console.log("delete is ", comment);
-      const id = comment._id;
+      const id = comment;
+      
       const response = await fetch(`/delete/${id}`, {
         method: "DELETE",
       });
-      // const updatedBackendComments = backendComments.filter(
-      //   (backendComment) => backendComment._id !== comment._id
-      // );
-      // setBackendComments(updatedBackendComments);
-      if (response.status === 200) {
-        console.log("success");
+          
+          if (response.status === 200) {
+        console.log("success-comment deleted");
       } else {
         alert("error deleting comment");
       }
       allcomments();
-   
-    }
+       }
   };
 
   //UPDATE COMMENT
   const updateComment = async (text, comment) => {
+  
+    
+    const id = comment;
     const data = JSON.stringify();
     console.log(`editing comment: ${data}`);
-    const id = comment._id;
     const response = await fetch(`/edit/${id}`, {
       method: "PUT",
       headers: {
@@ -107,16 +104,16 @@ const Comments = () => {
       },
       body: data,
     });
-    const updatedBackendComments = backendComments.map((backendComment) => {
-      if (backendComment.id === comment._id) {
-        return { ...backendComment, body: text };
-      }
-      return backendComment;
-    });
-    setBackendComments(updatedBackendComments);
+    // const updatedBackendComments = backendComments.map((backendComment) => {
+    //   if (backendComment.id === comment._id) {
+    //     return { ...backendComment, body: text };
+    //   }
+    //   return backendComment;
+    // });
+    setBackendComments(data);
     setActiveComment(null);
     if (response.status === 200) {
-      console.log("success");
+      console.log("success-comment edited");
     } else {
       alert("error creating comment");
     }
@@ -151,7 +148,7 @@ const Comments = () => {
             setActiveComment={setActiveComment}
             addComment={addComment}
             deleteComment={(comment) => deleteComment(comment)}
-            updateComment={updateComment}
+                 updateComment={updateComment}
             currentUser={userid}
           />
         ))}

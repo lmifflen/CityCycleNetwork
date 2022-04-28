@@ -67,15 +67,15 @@ router.delete("/delete/:id", async (req, res, next) => {
   }
 });
 
-router.post("/delete", async (req, res, next) => {
-  try {
-    const comment = req.body;
-    await deleteComment(comment);
-    res.send("Comment deleted");
-  } catch (err) {
-    debug(err.message);
-  }
-});
+// router.post("/delete", async (req, res, next) => {
+//   try {
+//     const comment = req.body;
+//     await deleteComment(comment);
+//     res.send("Comment deleted");
+//   } catch (err) {
+//     debug(err.message);
+//   }
+// });
 
 //To retrieve all comments. The return is an array of objects
 router.get("/allcomments", async (req, res, next) => {

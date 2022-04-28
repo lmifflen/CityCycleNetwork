@@ -14,11 +14,11 @@ const Comment = ({
   setActiveComment,
   parentId = null,
 }) => {
-  const fiveMinutes = 300000;
-  const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
+  // const fiveMinutes = 300000;
+  // const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canReply = Boolean(currentUserid);
-  const canEdit = currentUserid === comment.user_id && !timePassed;
-  const canDelete = currentUserid === comment.user_id && replies.length === 0 && !timePassed;
+  const canEdit = currentUserid === comment.user_id;
+  const canDelete = currentUserid === comment.user_id && replies.length === 0;
   // console.log("comment from ", comment.user_id);
   // console.log("can delete is ", canDelete);
   const isReplying =
@@ -30,7 +30,6 @@ const Comment = ({
     activeComment.id === comment._id &&
     activeComment.type === "editing";
   const replyId = parentId ? parentId : comment._id;
-  console.log("replies", replies);
   return (
     <div key={comment._id} className="comment">
       <div className="comment-image-container">
