@@ -6,6 +6,7 @@ import Map, {
   FullscreenControl,
   GeolocateControl,
   ScaleControl,
+  NavigationControl
 } from "react-map-gl";
 import ControlPanel from "../../utils/controlpanel/control-panel";
 import GetFeature from "../getfeature/GetFeature";
@@ -13,25 +14,25 @@ import GetFeature from "../getfeature/GetFeature";
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const MapView = () => {
-  const [lng, setLng] = useState(-114.07);
-  const [lat, setLat] = useState(51.05);
-  const [zoom, setZoom] = useState(12);
+  const [viewState, setViewState] = useState({
+    longitude: -114.07,
+    latitude: 51.05,
+    zoom: 12
+  });
+
   const [mapStyle, setMapStyle] = useState(null);
 
   return (
     <div className="map" id="mapbox">
       <h2 className="title">The best Road Biking Routes in Calgary</h2>
       <div className="sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        Longitude: {viewState.longitude.toFixed(2)} | Latitude: {viewState.latitude.toFixed(2)} | Zoom: {viewState.zoom.toFixed(2)}
       </div>
       <div className="mapandinfo">
         <>
           <Map
-            initialViewState={{
-              latitude: lat,
-              longitude: lng,
-              zoom: zoom,
-            }}
+          {...viewState}
+          onMove={evt => setViewState(evt.viewState)}
             mapStyle={mapStyle && mapStyle.toJS()}
             styleDiffing
             mapboxAccessToken={MAPBOX_TOKEN}
@@ -40,6 +41,7 @@ const MapView = () => {
             <FullscreenControl />
             <ScaleControl />
             <GetFeature />
+            {/* <NavigationControl /> */}
           </Map>
 
           <ControlPanel onChange={setMapStyle} />
