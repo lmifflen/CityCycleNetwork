@@ -13,12 +13,10 @@ function App() {
     <div className="flex">
       <Navbar />
       <Main />
-      <MapView />
+      {/* <MapView /> */}
       {/* <Info /> */}
       <Comments />
-      {/* // commentsUrl="http://localhost:3004/comments"
-    //   currentUserId="1" */}
-      <Footer />
+       <Footer />
     </div>
   );
 }

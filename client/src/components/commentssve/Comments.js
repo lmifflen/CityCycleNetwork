@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -6,27 +5,19 @@ import "./Comments.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Comments = () => {
+  const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+
+
+  const [backendUsers, setBackendUsers] = useState([]);
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
   const rootComments = backendComments.filter(
     (backendComment) => backendComment.parentId === null
   );
 
-  const { isAuthenticated } = useAuth0();
-  const { user } = useAuth0();
-  const [userid, setUserid] = useState();
-
-  // console.log("CURRENT USER", user.sub);
-
-  useEffect(() => {
-    if (user) {
-      let currentUserid = user.sub;
-      setUserid(currentUserid);
-    }
-  }, [user]);
-
   // GET REPLIES
-  const getReplies = (commentId) => {
+  const getReplies = async (commentId) => {
     return backendComments
       .filter((backendComment) => backendComment.parentId === commentId)
       .sort(
@@ -53,7 +44,6 @@ const Comments = () => {
       comment: text,
       parentId: parentId,
       createdAt: getTimeStamp(),
-      user_id: user.sub,
     };
 
     const data = JSON.stringify(newComment);
@@ -73,55 +63,43 @@ const Comments = () => {
       alert("error creating comment");
     }
   };
-
-  //DELETE COMMENT
-  const deleteComment = async (comment) => {
-    if (window.confirm("Are you sure you want delete a comment?")) {
-      console.log("delete is ", comment);
-      const id = comment._id;
+  //DELETE
+  const deleteComment = async (commentId) => {
+    if (window.confirm("Are you sure you want delete comment?")) {
+      let id = backendComments._id;
+      const data = JSON.stringify(commentId);
       const response = await fetch(`/delete/${id}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data,
       });
-      // const updatedBackendComments = backendComments.filter(
-      //   (backendComment) => backendComment._id !== comment._id
-      // );
-      // setBackendComments(updatedBackendComments);
+      const updatedBackendComments = backendComments.filter(
+        (backendComment) => backendComment._id !== commentId
+      );
+      setBackendComments(updatedBackendComments);
       if (response.status === 200) {
         console.log("success");
       } else {
         alert("error deleting comment");
       }
-      allcomments();
-   
     }
   };
 
   //UPDATE COMMENT
-  const updateComment = async (text, comment) => {
-    const data = JSON.stringify();
-    console.log(`editing comment: ${data}`);
-    const id = comment._id;
-    const response = await fetch(`/edit/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: data,
-    });
-    const updatedBackendComments = backendComments.map((backendComment) => {
-      if (backendComment.id === comment._id) {
-        return { ...backendComment, body: text };
-      }
-      return backendComment;
-    });
-    setBackendComments(updatedBackendComments);
-    setActiveComment(null);
-    if (response.status === 200) {
-      console.log("success");
-    } else {
-      alert("error creating comment");
-    }
-  };
+  // const updateComment = (text, commentId) => {
+  //   updateCommentApi(text).then(() => {
+  //     const updatedBackendComments = backendComments.map((backendComment) => {
+  //       if (backendComment.id === commentId) {
+  //         return { ...backendComment, body: text };
+  //       }
+  //       return backendComment;
+  //     });
+  //     setBackendComments(updatedBackendComments);
+  //     setActiveComment(null);
+  //   });
+  // };
 
   //GET ALL COMMENTS
   const allcomments = async () => {
@@ -133,10 +111,46 @@ const Comments = () => {
       console.log(ex);
     }
   };
+  console.log(allcomments);
 
   useEffect(() => {
     allcomments();
   }, []);
+
+  const finduseremail = async () => {
+    try {
+      if (!user) return setBackendUsers(null);
+      let email = user.email;
+      let response = await fetch(`/findusersbyemail?email=${email}`);
+      let allusers = await response.json();
+      return setBackendUsers(allusers);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+
+  useEffect(() => {
+    finduseremail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
+  
+  // const finduserbyid = async (id) => {
+  //   try {
+  //     // if (!user) return setBackendUsers(null);
+  //     let response = await fetch(`/findusersbyid?id=${id}`);
+  //     let usersid = await response.json();
+  //     return setBackendUsers(usersid);
+  //   } catch (ex) {
+  //     console.log(ex);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   finduserbyid();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [isAuthenticated]);
+
+
 
   return (
     <div className="comments">
@@ -151,9 +165,9 @@ const Comments = () => {
             activeComment={activeComment}
             setActiveComment={setActiveComment}
             addComment={addComment}
-            deleteComment={(comment) => deleteComment(comment)}
-            updateComment={updateComment}
-            currentUser={userid}
+            deleteComment={deleteComment}
+            // updateComment={updateComment}
+            currentUser={user}
           />
         ))}
       </div>

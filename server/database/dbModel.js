@@ -9,6 +9,7 @@ const commentSchema = new Schema(
     comment: String,
     route: { type: String, default: "" },
     parentId: { type: String, default: null },
+    user_id: String,
     createdAt: String,
   },
   { timestamps: true }
@@ -17,6 +18,7 @@ const commentSchema = new Schema(
 const userSchema = new Schema({
   username: String,
   email: String,
+  user_id: String,
 });
 
 const Comment = model("Comment", commentSchema);
@@ -78,11 +80,18 @@ const allUsers = async (email) => {
   return usersArray;
 };
 
-const findUsersbyemail = async (email) => {
-  let useremail = await User.find({ email: email });
-  // console.log(useremail);
-  return useremail;
+// const findUsersbyemail = async (email) => {
+//   let useremail = await User.find({ email: email });
+//   // console.log(useremail);
+//   return useremail;
+// };
+
+const findUsersbyid = async (id) => {
+  let userid = await User.findById(id);
+  console.log(userid);
+  return userid;
 };
+
 
 const findCommentsByRoute = async (route) => {
   let routeCommentsArray;
@@ -110,7 +119,8 @@ module.exports = {
   deleteComment,
   allComments,
   allUsers,
-  findUsersbyemail,
+  // findUsersbyemail,
   findCommentsByRoute,
   deleteCommentById,
+  findUsersbyid,
 };

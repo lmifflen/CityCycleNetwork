@@ -1,49 +1,56 @@
-import React from "react";
-import img from "../../images/user.png";
 import CommentForm from "./CommentForm";
-import "./Comments.css";
+import React from 'react'
+import "./Comments.css"
+import img from "../../images/user.png"
 
 const Comment = ({
   comment,
   replies,
-  currentUser: currentUserid,
+  setActiveComment,
+  activeComment,
   updateComment,
   deleteComment,
   addComment,
-  activeComment,
-  setActiveComment,
   parentId = null,
+  currentUserId,
 }) => {
-  const fiveMinutes = 300000;
-  const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
-  const canReply = Boolean(currentUserid);
-  const canEdit = currentUserid === comment.user_id && !timePassed;
-  const canDelete = currentUserid === comment.user_id && !timePassed;
-  // console.log("comment from ", comment.user_id);
-  // console.log("can delete is ", canDelete);
-  const isReplying =
-    activeComment &&
-    activeComment.type === "replying" &&
-    activeComment.id === comment._id;
   const isEditing =
     activeComment &&
-    activeComment.type === "editing" &&
-    activeComment.id === comment._id;
+    activeComment._id === comment._id &&
+    activeComment.type === "editing";
+  const isReplying =
+    activeComment &&
+    activeComment._id === comment._id &&
+    activeComment.type === "replying";
+  const fiveMinutes = 300000;
+  const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
+  const canDelete =
+    currentUserId === comment._id && replies.length === 0 && !timePassed;
+  const canReply = Boolean(currentUserId);
+  const canEdit = currentUserId === comment._id && !timePassed;
   const replyId = parentId ? parentId : comment._id;
-  console.log("replies", replies);
+  // const createdAt = new Date(comment.createdAt).toLocaleDateString();
   return (
-    <div className="comment">
+    <div key={comment._id} className="comment">
       <div className="comment-image-container">
-        <img src={img} alt="" />
+      <img src={img} alt=""/>
       </div>
       <div className="comment-right-part">
         <div className="comment-content">
-          <div className="commment-author">{comment.username}</div>
+          <div className="comment-author">{comment.username}</div>
           <div>{comment.createdAt}</div>
         </div>
         {!isEditing && <div className="comment-text">{comment.comment}</div>}
         {isEditing && (
-          <CommentForm submitLabel="Update" hasCancelButton initialText={comment.comment} handleSubmit={(text) => updateComment(text, comment._id)} handleCancel={() => setActiveComment(null)} />
+          <CommentForm
+            submitLabel="Update"
+            hasCancelButton
+            initialText={comment.comment}
+            handleSubmit={(text) => updateComment(text, comment._id)}
+            handleCancel={() => {
+              setActiveComment(null);
+            }}
+          />
         )}
         <div className="comment-actions">
           {canReply && (
@@ -69,7 +76,7 @@ const Comment = ({
           {canDelete && (
             <div
               className="comment-action"
-              onClick={() => deleteComment(comment._id)}
+              onClick={() => deleteComment(comment.id)}
             >
               Delete
             </div>
@@ -89,12 +96,12 @@ const Comment = ({
                 key={reply._id}
                 setActiveComment={setActiveComment}
                 activeComment={activeComment}
-                deleteComment={deleteComment}
                 updateComment={updateComment}
+                deleteComment={deleteComment}
                 addComment={addComment}
                 parentId={comment._id}
                 replies={[]}
-                currentUserid={currentUserid}
+                currentUserId={currentUserId}
               />
             ))}
           </div>
