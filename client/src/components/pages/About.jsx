@@ -1,5 +1,6 @@
 import React from "react";
 import './About.css'
+import Slideshow from './Slideshow'
 
 const About = () => {
   return (
@@ -28,7 +29,7 @@ const About = () => {
         </p2>
       </div>
       <div className="img">
-        IMAGE SLIDER WILL GO HERE
+        <Slideshow/>
       </div>
     </div>
   );
