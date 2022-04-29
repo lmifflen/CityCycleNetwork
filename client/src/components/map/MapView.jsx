@@ -24,7 +24,7 @@ const MapView = () => {
 
   return (
     <div className="map" id="mapbox">
-      <h2 className="title">The best Road Biking Routes in Calgary</h2>
+      <h2 className="title">Highlighting Calgarys Best Cyclepaths</h2>
       <div className="sidebar">
         Longitude: {viewState.longitude.toFixed(2)} | Latitude: {viewState.latitude.toFixed(2)} | Zoom: {viewState.zoom.toFixed(2)}
       </div>

@@ -24,6 +24,8 @@ import TwelveMileCoulee from "../../images/TwelveMileCoulee.jpg";
 import TrackCrossing from "../../images/TrackCrossing.png";
 import FiftyThirdStreetNW from "../../images/FiftyThirdStreetNW.png";
 import Inglewood from "../../images/Inglewood.jpg";
+import FishCreek from "../../images/FishCreek.jpg";
+import BowmontPark from "../../images/BowmontPark.jpg";
 
 
 
@@ -190,6 +192,19 @@ const info = {
       description: "The downtown cycle track is a great way to connect the downtown area to the regional pathways. Access to historic Stephen Ave and all the ameninties of downtown Calgary, the Beltline, and the East End make this a must include when looking for après cycle locations.",
       image: <img className="img" src={DTCycleNetwork} alt="" />
     },
+    FishCreekRoute: {
+      name: "Fish Creek Bike Route",
+      description: "A bike route that through the entirty of Fish Creek Provincial Park. This 22km route typcially would take 1-2 hours. In the western portion of the park cyclists will notice the influance of the foothills, and in the eastern portion of the park the influence of the praries is evident.",
+      image: <img className="img" src={FishCreek} alt="" />
+
+    },
+    ShouldiceBownessLoop: {
+      name: "Shouldice Bowness Loop",
+      description: "A loop that runs along the west side of the city through Dale Hodges Park, Bowmont Park, and the community of Bowness all along the Bow River. This is a 13 km loop that would typlically take 45 minutes to 1.5 hours to complete. ",
+      image: <img className="img" src={BowmontPark} alt="" />
+    },
+
+
    
   };
 
