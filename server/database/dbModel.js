@@ -61,15 +61,15 @@ const deleteComment = async (id) => {
 
 const deleteCommentById = async (id) => {
   try {
-   const deletedComment = await Comment.deleteOne({ _id: ObjectId(id) });
-  return deletedComment;
-} catch (err) {
-  debug(err.message);
-}
+    const deletedComment = await Comment.deleteOne({ _id: ObjectId(id) });
+    return deletedComment;
+  } catch (err) {
+    debug(err.message);
+  }
 };
 
 const allComments = async () => {
-  let commentsArray = await Comment.find().sort({createdAt: -1})
+  let commentsArray = await Comment.find().sort({ createdAt: -1 });
   // console.log(commentsArray);
   return commentsArray;
 };
@@ -92,7 +92,6 @@ const findUsersbyid = async (id) => {
   return userid;
 };
 
-
 const findCommentsByRoute = async (route) => {
   let routeCommentsArray;
   if (route === null || route === "") {
@@ -106,12 +105,13 @@ const findCommentsByRoute = async (route) => {
 
 const getTimeStamp = () => {
   const date = new Date().toString();
-  const createdAt = `${date.substring(4, 10)}, ${date.substring(11,15)} ${date.substring(16, 21)}`;
+  const createdAt = `${date.substring(4, 10)}, ${date.substring(
+    11,
+    15
+  )} ${date.substring(16, 21)}`;
   // console.log(createdAt);
   return createdAt;
 };
-
-
 
 module.exports = {
   addComment,

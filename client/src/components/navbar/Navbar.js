@@ -13,6 +13,13 @@ export default function Navbar() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const { user } = useAuth0();
 
+  const ime = () => {
+    if (!user.given_name && !user.family_name) {
+      return user.nickname;
+    } else {
+      return user.name;
+    }
+  };
   return (
     <div className="navbar">
       <div className="container">
@@ -41,7 +48,7 @@ export default function Navbar() {
               <a className="menu" href="/">Contact</a>
             </p>
           </li>
-          <li>{isAuthenticated && (<p><b>Hello {user.nickname}</b></p>)}</li>
+          <li>{isAuthenticated && (<p><b>Hello {ime()}</b></p>)}</li>
           <div>
             {!isAuthenticated && (
               <button className="btn" onClick={() => loginWithRedirect({})}>

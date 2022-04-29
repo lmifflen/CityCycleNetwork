@@ -3,6 +3,7 @@ import img from "../../images/user.png";
 import CommentForm from "./CommentForm";
 import "./Comments.css";
 
+
 const Comment = ({
   comment,
   replies,
@@ -17,18 +18,9 @@ const Comment = ({
   // const fiveMinutes = 300000;
   // const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canReply = Boolean(currentUserid);
-
+  // console.log("username is ", comment.username)
   const canEdit = currentUserid === comment.user_id;
-  if (comment.parentId != null) {
-    console.log("canedit is", canEdit)
-    console.log("currentUserid is", currentUserid)
-    console.log("user_id is", comment.user_id)
-    console.log("comment is", comment)
-  }
- 
   const canDelete = currentUserid === comment.user_id && replies.length === 0;
-  // console.log("comment from ", comment.user_id);
-  // console.log("can delete is ", canDelete);
   const isReplying =
     activeComment &&
     activeComment.id === comment._id &&
@@ -46,7 +38,7 @@ const Comment = ({
       <div className="comment-right-part">
         <div className="comment-content">
           <div className="comment-author">{comment.username}</div>
-          <div>{comment.createdAt}</div>
+                   <div>{comment.createdAt}</div>
         </div>
         {!isEditing && <div className="comment-text">{comment.comment}</div>}
         {isEditing && (

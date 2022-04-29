@@ -43,10 +43,19 @@ const Comments = () => {
     return createdAt;
   };
 
+  const ime = () => {
+    if (!user.given_name && !user.family_name) {
+      return user.nickname;
+    } else {
+      return user.name;
+    }
+  };
+  // console.log("issocial is ", ime)
+
   //ADD COMMENT
   const addComment = async (text, parentId = null) => {
     const newComment = {
-      username: user.nickname,
+      username: ime(),
       comment: text,
       parentId: parentId,
       createdAt: getTimeStamp(),
@@ -102,7 +111,7 @@ const Comments = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({comment: text}),
+      body: JSON.stringify({ comment: text }),
     });
 
     setActiveComment(null);
