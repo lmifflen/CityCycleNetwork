@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { fromJS } from "immutable";
 import MAP_STYLE from "./style.json";
 import info from "../../components/info/pathwayInfo";
+import "./control-panel.css";
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 const defaultLayers = defaultMapStyle.get("layers");
