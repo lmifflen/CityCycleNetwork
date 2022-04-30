@@ -51,13 +51,21 @@ const Comments = () => {
     }
   };
 
+  const pictureNonsocial = () => {
+    if (!user.given_name && !user.family_name) {
+      return null;
+    } else {
+      return user.picture;
+    }
+  };
+
   //ADD COMMENT
   const addComment = async (text, parentId = null) => {
     const newComment = {
       username: ime(),
       comment: text,
       parentId: parentId,
-      picture: user.picture,
+      picture: pictureNonsocial(),
       createdAt: getTimeStamp(),
       user_id: user.sub,
 
