@@ -41,7 +41,7 @@ const Comment = ({
   return (
     <div key={comment._id} className="comment">
       <div className="comment-image-container">
-        <img src={img} alt="" />
+        <img src={comment.picture || img} alt="" />
       </div>
       <div className="comment-right-part">
         <div className="comment-content">

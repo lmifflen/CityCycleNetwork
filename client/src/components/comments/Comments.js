@@ -57,8 +57,10 @@ const Comments = () => {
       username: ime(),
       comment: text,
       parentId: parentId,
+      picture: user.picture,
       createdAt: getTimeStamp(),
       user_id: user.sub,
+
     };
 
     const data = JSON.stringify(newComment);

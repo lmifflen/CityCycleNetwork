@@ -8,6 +8,7 @@ const commentSchema = new Schema(
     username: String,
     comment: String,
     route: { type: String, default: "" },
+    picture: String,
     parentId: { type: String, default: null },
     user_id: String,
     createdAt: String,
