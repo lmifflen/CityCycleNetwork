@@ -25,6 +25,7 @@ const MapView = () => {
   return (
     <div className="map" id="mapbox">
       <h2 className="title">Highlighting Calgarys Best Cyclepaths</h2>
+      <ControlPanel onChange={setMapStyle} />
       <div className="sidebar">
         Longitude: {viewState.longitude.toFixed(2)} | Latitude: {viewState.latitude.toFixed(2)} | Zoom: {viewState.zoom.toFixed(2)}
       </div>
@@ -44,7 +45,7 @@ const MapView = () => {
             {/* <NavigationControl /> */}
           </Map>
 
-          <ControlPanel onChange={setMapStyle} />
+          
         </>
       </div>
     </div>

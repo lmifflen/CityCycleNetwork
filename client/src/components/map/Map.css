@@ -33,7 +33,7 @@
 }
 
 .sidebar {
-  margin-left: 5%;
+  margin-left: 4%;
   background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
   padding: 6px 12px;
@@ -73,8 +73,8 @@ div.mapboxgl-map {
   overflow-y: scroll;
   /* margin: 12px; */
   
-  right: -55%;
-  left: 35%;
+  right: -40%;
+  left: 22%;
   bottom: 1px;
   top: 1px;
 

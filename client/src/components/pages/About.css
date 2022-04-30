@@ -1,7 +1,6 @@
 .about{
     margin-left: 3%;
     margin-right: 3%;
-    justify-content: center
 }
 
 .h1{
@@ -18,13 +17,13 @@
     font-size: 1rem;
     font-weight: 600;
     text-align: justify;
-    ;
+    text-justify: inter-word;
 }
 
 .img{
 
-    padding: 1.5%;
-    height: 100%;
-    width: 100%;
+    padding: 1.5%;  
+    margin-left: auto;
+    margin-right: auto;  
 
 }
