@@ -2,7 +2,7 @@ import React from "react";
 import img from "../../images/user.png";
 import CommentForm from "./CommentForm";
 import "./Comments.css";
-
+// import { useAuth0 } from "@auth0/auth0-react";
 
 const Comment = ({
   comment,
@@ -15,6 +15,14 @@ const Comment = ({
   setActiveComment,
   parentId = null,
 }) => {
+  // const { user } = useAuth0();
+  // const photo = () => {
+  //   if (!user.picture) {
+  //     return img;
+  //   } else {
+  //     return user.picture;
+  //   }
+  // };
   // const fiveMinutes = 300000;
   // const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canReply = Boolean(currentUserid);
@@ -38,11 +46,19 @@ const Comment = ({
       <div className="comment-right-part">
         <div className="comment-content">
           <div className="comment-author">{comment.username}</div>
-                   <div>{comment.createdAt}</div>
+          <div>{comment.createdAt}</div>
         </div>
         {!isEditing && <div className="comment-text">{comment.comment}</div>}
         {isEditing && (
-          <CommentForm submitLabel="Update" hasCancelButton initialText={comment.comment} handleSubmit={(text) => updateComment(text, comment._id)} handleCancel={() => {setActiveComment(null)}} />
+          <CommentForm
+            submitLabel="Update"
+            hasCancelButton
+            initialText={comment.comment}
+            handleSubmit={(text) => updateComment(text, comment._id)}
+            handleCancel={() => {
+              setActiveComment(null);
+            }}
+          />
         )}
         <div className="comment-actions">
           {canReply && (

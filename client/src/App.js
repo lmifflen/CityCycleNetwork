@@ -4,6 +4,7 @@ import Footer from "./components/footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
+import Profile from "./components/login/Profile";
 
 // console.log(process.env.REACT_APP_MAPBOX_TOKEN);
 

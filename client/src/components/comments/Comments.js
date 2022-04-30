@@ -50,7 +50,6 @@ const Comments = () => {
       return user.name;
     }
   };
-  // console.log("issocial is ", ime)
 
   //ADD COMMENT
   const addComment = async (text, parentId = null) => {
@@ -140,7 +139,7 @@ const Comments = () => {
 
   return (
     <div className="comments">
-      <h3 className="comments-title">Comments</h3>
+      <h3 className="comments-title">Leave a comment</h3>
       <CommentForm submitLabel="Submit" handleSubmit={addComment} />
       <div className="comments-container">
         {rootComments.map((rootComment) => (
