@@ -6,7 +6,6 @@ import Map, {
   FullscreenControl,
   GeolocateControl,
   ScaleControl,
-  NavigationControl,
   Popup,
   Marker,
 } from "react-map-gl";
@@ -64,7 +63,7 @@ const MapView = () => {
             <FullscreenControl />
             <ScaleControl />
             <GetFeature />
-            {/* <NavigationControl /> */}
+     
             {pins}
 
 
@@ -78,12 +77,12 @@ const MapView = () => {
           >
             <div>
               {popupInfo.business}, {popupInfo.type} |{' '}
-              {/* <a
-                target="_new"
-                href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.city}, ${popupInfo.state}`}
+              <a
+                href={popupInfo.website}
+                
               >
-                Wikipedia
-              </a> */}
+                Website
+              </a>
             </div>
             <img width="100%" src={popupInfo.image} />
           </Popup>
