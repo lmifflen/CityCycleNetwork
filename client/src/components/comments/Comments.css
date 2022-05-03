@@ -1,3 +1,17 @@
+.picker-container {
+  position:relative;
+  width: 400px;
+  margin-left: 197px;
+}
+ 
+.emoji-icon {
+  cursor: pointer;
+  position:absolute;
+  top: -32px;
+  right: 17px;
+  width:20px
+}
+
 .comments {
   margin-top: 80px;
   margin-right: 200px;
@@ -63,6 +77,7 @@
 
 .comment-right-part {
   width: 100%;
+  margin-bottom: -30px;
 }
 
 .comment-content {
