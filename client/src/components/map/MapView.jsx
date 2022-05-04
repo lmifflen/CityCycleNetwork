@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import * as React from "react";
 import "./Map.css";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -6,10 +6,14 @@ import Map, {
   FullscreenControl,
   GeolocateControl,
   ScaleControl,
-  NavigationControl
+  Popup,
+  Marker,
 } from "react-map-gl";
 import ControlPanel from "../../utils/controlpanel/control-panel";
 import GetFeature from "../getfeature/GetFeature";
+import Pin from "../popup/Pin";
+
+import BUSINESS from "../popup/business.json";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -21,6 +25,23 @@ const MapView = () => {
   });
 
   const [mapStyle, setMapStyle] = useState(null);
+  const [popupInfo, setPopupInfo] = useState(null);
+
+  const pins = useMemo(
+    () =>
+      BUSINESS.map((business, index) => (
+        <Marker
+          key={`marker-${index}`}
+          longitude={business.longitude}
+          latitude={business.latitude}
+          anchor="bottom"
+        >
+          <Pin onClick={() => setPopupInfo(business)} />
+        </Marker>
+      )),
+    []
+  );
+  
 
   return (
     <div className="map" id="mapbox">
@@ -42,7 +63,31 @@ const MapView = () => {
             <FullscreenControl />
             <ScaleControl />
             <GetFeature />
-            {/* <NavigationControl /> */}
+     
+            {pins}
+
+
+            {popupInfo && (
+          <Popup
+            anchor="top"
+            longitude={popupInfo.longitude}
+            latitude={popupInfo.latitude}
+            closeOnClick={false}
+            onClose={() => setPopupInfo(null)}
+          >
+            <div>
+              {popupInfo.business}, {popupInfo.type} |{' '}
+              <a
+                href={popupInfo.website}
+                
+              >
+                Website
+              </a>
+            </div>
+            <img width="100%" src={popupInfo.image} />
+          </Popup>
+        )}
+           
           </Map>
 
           
