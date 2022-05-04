@@ -194,13 +194,13 @@ const info = {
     },
     FishCreekRoute: {
       name: "Fish Creek Bike Route",
-      description: "A bike route that through the entirty of Fish Creek Provincial Park. This 22km route typcially would take 1-2 hours. In the western portion of the park cyclists will notice the influance of the foothills, and in the eastern portion of the park the influence of the praries is evident.",
+      description: "A bike route that through the entirty of Fish Creek Provincial Park. This 22km route typically takes 1-2 hours. In the western portion of the park cyclists will notice the influance of the foothills, and in the eastern portion of the park the influence of the praries is evident.",
       image: <img className="img" src={FishCreek} alt="" />
 
     },
     ShouldiceBownessLoop: {
       name: "Shouldice Bowness Loop",
-      description: "A loop that runs along the west side of the city through Dale Hodges Park, Bowmont Park, and the community of Bowness all along the Bow River. This is a 13 km loop that would typlically take 45 minutes to 1.5 hours to complete. ",
+      description: "A loop that runs along the west side of the city through Dale Hodges Park, Bowmont Park, and the community of Bowness all along the Bow River. This is a 13 km loop that would typically take 45 minutes to 1.5 hours to complete. ",
       image: <img className="img" src={BowmontPark} alt="" />
     },
 
