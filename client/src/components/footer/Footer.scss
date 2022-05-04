@@ -29,7 +29,7 @@
 
 
 .social-follow {
-  font-size: 25px;
+  font-size: 23px;
   align-items: flex-end;
 }
 
@@ -72,15 +72,15 @@ $gradient      : #00B5F5;
         display: inline-block;
         margin: 0.15em;
         position: relative;
-        font-size: 1.3em;
+        font-size: 1.2em;
 
     }
 
     i {
         color: #fff;
         position: absolute;
-        top: 21px;
-        left: 21px;
+        top: 13px;
+        left: 16px;
         transition: all $timing ease-out;
     }
 
@@ -90,8 +90,8 @@ $gradient      : #00B5F5;
         &:before {
             @include transformScale();
             content: " ";
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 100%;
             display: block;
             background: linear-gradient(45deg, $iconColor, $accent);

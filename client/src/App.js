@@ -6,7 +6,6 @@ import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
 
-// console.log(process.env.REACT_APP_MAPBOX_TOKEN);
 
 function App() {
   return (
