@@ -97,4 +97,4 @@ const MapView = () => {
   );
 };
 
-export default MapView;
+export default React.memo(MapView);

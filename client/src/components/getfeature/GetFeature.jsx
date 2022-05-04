@@ -21,4 +21,4 @@ const GetFeature = () => {
             return <div className="info">{<Info feature={feature}> </Info>}</div>;
           }
 
-export default GetFeature
+export default React.memo(GetFeature);

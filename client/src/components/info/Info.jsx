@@ -1,4 +1,5 @@
 import info from "./pathwayInfo";
+import React from "react";
 import "./Info.css";
 import BowCyclepath from "../../images/BowCyclepath.jpg";
 
@@ -43,4 +44,4 @@ const Info = (props) => {
   );
 };
 
-export default Info;
+export default React.memo(Info);
