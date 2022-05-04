@@ -45,7 +45,7 @@ export default function Navbar() {
           </li>
           <li>
             <p>
-              <a className="menu" href="/">Contact</a>
+              <a className="menu" href="/contact">Contact</a>
             </p>
           </li>
           <li>{isAuthenticated && (<p><b>Hello {ime()}</b></p>)}</li>

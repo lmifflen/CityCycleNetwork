@@ -1,0 +1,98 @@
+.formbackground {
+  background-color: rgb(189, 244, 247);
+  background: url("../../images/path.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+  background-position: center;
+}
+
+/* .formimage { */
+  /* background-color: rgb(189, 244, 247);
+  background: url("../../images/path.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* width: 200px; */
+  /* height: 90vh;
+  width: 100%; */
+  /* height:100%; */
+  /* background-position: center; */
+/* } */
+
+.contactus{
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.touch {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.chatform {
+  text-align: center;
+margin-bottom: 20px;
+}
+
+.contactcontainer {
+  width: 600px;
+  margin: 0 auto;
+  height: 70vh;
+}
+
+.contactform {
+  display: inline-block;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  padding: 60px;
+  background-color: rgba(255,255,255,.7);
+  border-radius: 20px;
+  margin-top: 110px;
+  
+}
+
+.inputform {
+  width: 100%;
+  height: 45px;
+  padding: 7px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(220, 220, 220);
+  margin-bottom: 10px;
+}
+
+.textareaform {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  max-height: 100px;
+  min-height: 100px;
+  padding: 7px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.labelform {
+  margin-top: 1rem;
+  font-size: 19px;
+}
+
+.inputformsubmit {
+  display: flex;
+  font-size: 18px;
+  padding: 10px 26px;
+  background: rgb(59, 130, 246);
+  border-radius: 8px;
+  color: white;
+  margin-top: 10px;
+}
+
+.inputformsubmit:hover:enabled {
+  cursor: pointer;
+  background: rgb(37, 99, 235);
+}

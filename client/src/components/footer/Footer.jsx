@@ -3,6 +3,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
+    <div className="flex-wraper">
     <div className="footer">
       <div className="bikeknights">© 2022 Bike Knights</div>
       <div className="social">
@@ -48,6 +49,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+    </div>
     </div>
   );
 };
