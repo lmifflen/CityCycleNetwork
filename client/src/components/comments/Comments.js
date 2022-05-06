@@ -4,6 +4,7 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import "./Comments.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import Slideshow from "../pages/Slideshow";
 
 const Comments = () => {
   const [backendComments, setBackendComments] = useState([]);
@@ -68,7 +69,6 @@ const Comments = () => {
       picture: pictureNonsocial(),
       createdAt: getTimeStamp(),
       user_id: user.sub,
-
     };
 
     const data = JSON.stringify(newComment);
@@ -148,23 +148,46 @@ const Comments = () => {
   }, []);
 
   return (
-    <div className="comments">
-      <h3 className="comments-title">Leave a comment</h3>
-      <CommentForm submitLabel="Submit" handleSubmit={addComment} />
-      <div className="comments-container">
-        {rootComments.map((rootComment) => (
-          <Comment
-            key={rootComment._id}
-            comment={rootComment}
-            replies={getReplies(rootComment._id)}
-            activeComment={activeComment}
-            setActiveComment={setActiveComment}
-            addComment={addComment}
-            deleteComment={(comment) => deleteComment(comment)}
-            updateComment={updateComment}
-            currentUserid={userid}
-          />
-        ))}
+    <div className="commentsandimage">
+      <div>
+        <a
+          className="weatherlink"
+          href="https://weather.gc.ca/city/pages/ab-52_metric_e.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="weather">Check area weather</div>
+        </a>
+        <a className="menu2" href="/contact">
+          <div className="contactus2">
+            <p className="contacusp">We'd love to hear from you!</p> Whether you
+            have a question about features or anything else, our team is ready
+            to answer all your questions
+          </div>
+        </a>
+      </div>
+      <div className="comments-slideshow">
+        {" "}
+        <Slideshow />{" "}
+      </div>
+      <div className="comments">
+        <h3 className="comments-title">Leave a comment</h3>
+        <CommentForm submitLabel="Submit" handleSubmit={addComment} />
+        <div className="comments-container">
+          {rootComments.map((rootComment) => (
+            <Comment
+              key={rootComment._id}
+              comment={rootComment}
+              replies={getReplies(rootComment._id)}
+              activeComment={activeComment}
+              setActiveComment={setActiveComment}
+              addComment={addComment}
+              deleteComment={(comment) => deleteComment(comment)}
+              updateComment={updateComment}
+              currentUserid={userid}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

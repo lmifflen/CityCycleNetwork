@@ -15,18 +15,7 @@ const Comment = ({
   setActiveComment,
   parentId = null,
 }) => {
-  // const { user } = useAuth0();
-  // const photo = () => {
-  //   if (!user.picture) {
-  //     return img;
-  //   } else {
-  //     return user.picture;
-  //   }
-  // };
-  // const fiveMinutes = 300000;
-  // const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canReply = Boolean(currentUserid);
-  // console.log("username is ", comment.username)
   const canEdit = currentUserid === comment.user_id;
   const canDelete = currentUserid === comment.user_id && replies.length === 0;
   const isReplying =
