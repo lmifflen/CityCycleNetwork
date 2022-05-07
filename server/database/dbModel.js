@@ -81,12 +81,6 @@ const allUsers = async (email) => {
   return usersArray;
 };
 
-// const findUsersbyemail = async (email) => {
-//   let useremail = await User.find({ email: email });
-//   // console.log(useremail);
-//   return useremail;
-// };
-
 const findUsersbyid = async (id) => {
   let userid = await User.findById(id);
   console.log(userid);
@@ -120,7 +114,6 @@ module.exports = {
   deleteComment,
   allComments,
   allUsers,
-  // findUsersbyemail,
   findCommentsByRoute,
   deleteCommentById,
   findUsersbyid,
