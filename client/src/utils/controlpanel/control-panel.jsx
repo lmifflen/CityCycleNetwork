@@ -2,24 +2,22 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { fromJS } from "immutable";
 import MAP_STYLE from "./style.json";
-import info from "../../components/info/pathwayInfo";
+import info from "../../components/info/pathwayKeys";
 import "./control-panel.css";
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 const defaultLayers = defaultMapStyle.get("layers");
 
-// console.log(Object.keys(info));
+
 let pathways = Object.keys(info);
-// console.log(pathways);
+
 const pathString = pathways.toString().toLowerCase();
-// console.log(pathString);
+
 const pathReplacement = pathString.replaceAll(",", "|");
-// console.log(pathReplacement);
+
 
 let cycleWays = new RegExp(pathReplacement);
-// console.log(cycleWays);
-// let test = "bridge|road|tunnel";
-// let testRegEx = new RegExp(test);
+
 
 const categories = ["Cycleways", "ParkandRide", "BikeRoutes"];
 
