@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="social-follow">Follow Us</div>
         <div className="social-container">
           <ul className="social-icons">
-            <li>
+            {/* <li>
               <a
                 href="https://www.facebook.com"
                 target="_blank"
@@ -18,10 +18,10 @@ const Footer = () => {
               >
                 <i className="fa fa-facebook"></i>
               </a>
-            </li>
+            </li> */}
             <li>
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/miffll/"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -30,14 +30,14 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/luke-mifflen/"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 <i className="fa fa-linkedin"></i>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="https://www.twitter.com"
                 target="_blank"
@@ -45,7 +45,7 @@ const Footer = () => {
               >
                 <i className="fa fa-twitter"></i>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
