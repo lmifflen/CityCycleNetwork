@@ -72,6 +72,7 @@ const deleteCommentById = async (id) => {
 const allComments = async () => {
   let commentsArray = await Comment.find().sort({ createdAt: -1 });
   // console.log(commentsArray);
+  console.log(`received comments array, ${commentsArray.length}`)
   return commentsArray;
 };
 
