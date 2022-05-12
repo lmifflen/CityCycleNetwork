@@ -12,7 +12,7 @@ import Map, {
 import ControlPanel from "../../utils/controlpanel/control-panel";
 import GetFeature from "../getfeature/GetFeature";
 import Pin from "../popup/Pin";
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default; // eslint-disable-line
+
 
 import BUSINESS from "../popup/business.json";
 
