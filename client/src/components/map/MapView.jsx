@@ -15,7 +15,8 @@ import Pin from "../popup/Pin";
 
 import BUSINESS from "../popup/business.json";
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
+// const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
+const MAPBOX_TOKEN = 'pk.eyJ1IjoibWlmZmxsIiwiYSI6ImNsMWNtNTA2MDA3ZGgzY3BjN2d0dDgzczUifQ.hCA00GpYuE3C8miBX7tfPg';
 
 const MapView = () => {
   const [viewState, setViewState] = useState({
