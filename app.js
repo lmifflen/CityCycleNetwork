@@ -13,6 +13,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/client/build')));
 
@@ -37,8 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 
 
 
