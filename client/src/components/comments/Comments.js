@@ -140,6 +140,7 @@ const Comments = () => {
       return setBackendComments(allcomments);
     } catch (ex) {
       console.log('the comments arent loading');
+      console.log(ex)
     }
   };
 
