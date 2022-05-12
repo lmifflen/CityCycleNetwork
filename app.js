@@ -33,7 +33,7 @@ if(process.env.NODE_ENV === 'production') {
   })
 }
 
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
