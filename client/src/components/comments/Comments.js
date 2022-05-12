@@ -139,7 +139,7 @@ const Comments = () => {
       let allcomments = await response.json();
       return setBackendComments(allcomments);
     } catch (ex) {
-      console.log(ex);
+      console.log('the comments arent loading');
     }
   };
 
