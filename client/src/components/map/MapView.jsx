@@ -8,7 +8,7 @@ import Map, {
   ScaleControl,
   Popup,
   Marker,
-} from "!react-map-gl";
+} from "react-map-gl";
 import ControlPanel from "../../utils/controlpanel/control-panel";
 import GetFeature from "../getfeature/GetFeature";
 import Pin from "../popup/Pin";
