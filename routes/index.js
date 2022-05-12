@@ -66,6 +66,7 @@ router.get("/allcomments", async (req, res, next) => {
     res.send(commentsArray);
   } catch (err) {
     debug(err.message);
+    
   }
 });
 
