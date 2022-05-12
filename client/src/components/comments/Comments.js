@@ -73,7 +73,7 @@ const Comments = () => {
 
     const data = JSON.stringify(newComment);
     console.log(`creating new comment: ${data}`);
-    const response = await fetch("/index/add", {
+    const response = await fetch("/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const Comments = () => {
       console.log("delete is ", comment);
       const id = comment;
 
-      const response = await fetch(`/index/delete/${id}`, {
+      const response = await fetch(`/delete/${id}`, {
         method: "DELETE",
       });
 
@@ -115,7 +115,7 @@ const Comments = () => {
     console.log("bla", text);
     const id = comment;
     console.log("COMMENT IS", comment);
-    const response = await fetch(`/index/edit/${id}`, {
+    const response = await fetch(`/edit/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -135,7 +135,7 @@ const Comments = () => {
   //GET ALL COMMENTS
   const allcomments = async () => {
     try {
-      let response = await fetch("/index/allcomments");
+      let response = await fetch("/allcomments");
       let allcomments = await response.json();
       return setBackendComments(allcomments);
     } catch (ex) {
@@ -166,7 +166,7 @@ const Comments = () => {
           </div>
         </a>
       </div>
-      <div className="comments-slideshow">
+      <div className="comments-slideshow" >
         {" "}
         <Slideshow />{" "}
       </div>
