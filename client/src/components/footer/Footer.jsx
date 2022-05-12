@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="flex-wraper">
     <div className="footer">
-      <div className="bikeknights">© 2022 Luke Mifflen et al.</div>
+      <div className="bikeknights">© 2022 Bike Knights.</div>
       <div className="social">
         <div className="social-follow">Follow Us</div>
         <div className="social-container">
