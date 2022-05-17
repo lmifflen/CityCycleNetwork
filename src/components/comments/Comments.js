@@ -6,6 +6,9 @@ import "./Comments.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import Slideshow from "../pages/Slideshow";
 
+
+
+
 const Comments = () => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
@@ -73,7 +76,7 @@ const Comments = () => {
 
     const data = JSON.stringify(newComment);
     console.log(`creating new comment: ${data}`);
-    const response = await fetch("/add", {
+    const response = await fetch("https://city-cycle-server.herokuapp.com/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +100,7 @@ const Comments = () => {
       console.log("delete is ", comment);
       const id = comment;
 
-      const response = await fetch(`/delete/${id}`, {
+      const response = await fetch(`https://city-cycle-server.herokuapp.com/delete/${id}`, {
         method: "DELETE",
       });
 
@@ -115,7 +118,7 @@ const Comments = () => {
     console.log("bla", text);
     const id = comment;
     console.log("COMMENT IS", comment);
-    const response = await fetch(`/edit/${id}`, {
+    const response = await fetch(`https://city-cycle-server.herokuapp.com/edit/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -135,12 +138,12 @@ const Comments = () => {
   //GET ALL COMMENTS
   const allcomments = async () => {
     try {
-      let response = await fetch("/allcomments");
+      let response = await fetch("https://city-cycle-server.herokuapp.com/allcomments");
       let allcomments = await response.json();
       return setBackendComments(allcomments);
     } catch (ex) {
-      console.log('the comments arent loading');
-      console.log(ex)
+      // console.log('the comments arent loading');
+      console.log(`the error is, ${ex}`);
     }
   };
 
