@@ -20,7 +20,7 @@ const About = () => {
         <br />
 
         <p2 className="p">
-          This project was created in part for <a href='https://www.inceptionu.com/'>InceptionU's</a> Cohort 8 Project 2. The project was create by <a href="https://www.linkedin.com/in/luke-mifflen/">Luke Mifflen</a>, <a href="https://www.linkedin.com/in/sanja-ivansic/">Sanja Ivansic</a>, and Adnan Ather.
+          This project was created in part by the Bike Knights for <a href='https://www.inceptionu.com/'>InceptionU's</a> Cohort 8 Project 2. The Bike Knights team consists of <a href="https://www.linkedin.com/in/luke-mifflen/">Luke Mifflen</a>, <a href="https://www.linkedin.com/in/sanja-ivansic/">Sanja Ivansic</a>, and Adnan Ather.
         </p2>
       </div>
       <div className="img">
