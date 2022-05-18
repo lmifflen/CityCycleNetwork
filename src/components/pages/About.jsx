@@ -9,23 +9,18 @@ const About = () => {
         <h1 className="h1"> About</h1>
         <br/>
         <p1 className="p">
-          Summers in Calgary are lovely, and cycling is one of the best ways to
-          take advantage of the city's outstanding natural visual splendour.
-          It's also one of the most convenient methods to get around town.
-          Cycling's additional health benefits make it a popular choice among
-          active people. There are various bike lanes and routes in Calgary,
-          ranging from flat, simple terrain to mountain biking.
-        </p1>
-        <br />
-        <br />
-
-        <p2 className="p">
-          City Cycle Network is aimed at providing a clear, visually beautiful,
+        City Cycle Network is aimed at providing a clear, visually beautiful,
           and intuitive map of cycle paths in Calgary. Calgarians and tourists
           may easily envision and plan their leisure bike journeys using the
           highlighted interesting bike routes. The City Cycle Network also
           facilitates connections with local businesses located along bike
           paths, which may be beneficial while out for a leisurely ride.
+        </p1>
+        <br />
+        <br />
+
+        <p2 className="p">
+          This project was created in part for <a href='https://www.inceptionu.com/'>InceptionU's</a> Cohort 8 Project 2. The project was create by <a href="https://www.linkedin.com/in/luke-mifflen/">Luke Mifflen</a>, <a href="https://www.linkedin.com/in/sanja-ivansic/">Sanja Ivansic</a>, and Adnan Ather.
         </p2>
       </div>
       <div className="img">
