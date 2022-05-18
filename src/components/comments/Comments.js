@@ -76,7 +76,7 @@ const Comments = () => {
 
     const data = JSON.stringify(newComment);
     console.log(`creating new comment: ${data}`);
-    const response = await fetch("https://city-cycle-server.herokuapp.com//add", {
+    const response = await fetch("https://city-cycle-server.herokuapp.com/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
