@@ -79,10 +79,54 @@ div.mapboxgl-map {
 }
 @media screen and (max-width: 940px) {
   .map{
+    height: 700px;
     margin-top: 1rem%;
+    width: auto;
+    
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  }
+
+  .mapandinfo {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
   }
   .title {
-    font-size: 24px;
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+
+  .info {
+    padding: 1rem;
+    /* margin-top: 5px; */
+    margin-left: 0%;
+    margin-right: 0%;
+    /* margin-bottom: 5px; */
+    background-color: rgba(35, 55, 75, 0.9);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: monospace;
+    
+    z-index: 10;
+    position: absolute;
+    top: 1;
+    left: 0;
+    overflow-y: scroll;
+    /* margin: 12px; */
+  
+    right: 0%;
+    left: 0%;
+    bottom: 1px;
+    top: 75%;
   }
   
 }
