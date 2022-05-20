@@ -84,3 +84,8 @@ margin-bottom: 20px;
   cursor: pointer;
   background: rgb(37, 99, 235);
 }
+@media screen and (max-width: 940px) {
+  .contactcontainer {
+    width: 100%;
+  }
+}
