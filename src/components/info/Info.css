@@ -3,3 +3,8 @@
     height: 75%;
     object-fit: scale-down;
 }
+@media screen and (max-width: 940px) {
+    .img {
+        display: none;
+    }
+}
