@@ -77,3 +77,12 @@ div.mapboxgl-map {
   bottom: 1px;
   top: 1px;
 }
+@media screen and (max-width: 940px) {
+  .map{
+    margin-top: 1rem%;
+  }
+  .title {
+    font-size: 24px;
+  }
+  
+}
